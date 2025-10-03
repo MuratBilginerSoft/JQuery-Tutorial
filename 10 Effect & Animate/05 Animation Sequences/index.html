@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Animation Sequences</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-film"></i> Animasyon Sekansları</h1>
+            <p>jQuery'de ardışık ve paralel animasyonları öğrenin</p>
+        </header>
+
+        <div class="examples-container">
+            <!-- Basic Sequence -->
+            <section class="example-section">
+                <h2>Temel Sekans</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="startBasicSequenceBtn">Sekansı Başlat</button>
+                        <button id="resetBasicSequenceBtn">Sıfırla</button>
+                        <select id="basicSequenceSpeed">
+                            <option value="fast">Hızlı</option>
+                            <option value="slow">Yavaş</option>
+                            <option value="1000">1 saniye</option>
+                            <option value="2000">2 saniye</option>
+                        </select>
+                    </div>
+                    <div class="animation-container">
+                        <div id="basicSequenceDemo" class="demo-element">
+                            <i class="fas fa-play"></i>
+                            <span>Sekans Demo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element")
+    .fadeOut("slow")
+    .fadeIn("slow")
+    .animate({left: "200px"});</code></pre>
+                </div>
+            </section>
+
+            <!-- Callback Sequence -->
+            <section class="example-section">
+                <h2>Callback ile Sekans</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="startCallbackSequenceBtn">Sekansı Başlat</button>
+                        <button id="resetCallbackSequenceBtn">Sıfırla</button>
+                    </div>
+                    <div class="animation-container">
+                        <div id="callbackSequenceDemo" class="demo-element">
+                            <i class="fas fa-code"></i>
+                            <span>Callback Demo</span>
+                        </div>
+                    </div>
+                    <div id="callbackProgress" class="progress-box"></div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element").fadeOut("slow", function() {
+    $(this).fadeIn("slow", function() {
+        $(this).animate({left: "200px"});
+    });
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Promise Sequence -->
+            <section class="example-section">
+                <h2>Promise ile Sekans</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="startPromiseSequenceBtn">Sekansı Başlat</button>
+                        <button id="resetPromiseSequenceBtn">Sıfırla</button>
+                    </div>
+                    <div class="animation-container">
+                        <div id="promiseSequenceDemo" class="demo-element">
+                            <i class="fas fa-link"></i>
+                            <span>Promise Demo</span>
+                        </div>
+                    </div>
+                    <div id="promiseProgress" class="progress-box"></div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element").promise().then(function() {
+    return $(this).fadeOut("slow").promise();
+}).then(function() {
+    return $(this).fadeIn("slow").promise();
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Parallel Animations -->
+            <section class="example-section">
+                <h2>Paralel Animasyonlar</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="startParallelBtn">Paralel Başlat</button>
+                        <button id="resetParallelBtn">Sıfırla</button>
+                    </div>
+                    <div class="animation-container parallel-container">
+                        <div id="parallel1" class="demo-element">
+                            <i class="fas fa-square"></i>
+                            <span>1</span>
+                        </div>
+                        <div id="parallel2" class="demo-element">
+                            <i class="fas fa-circle"></i>
+                            <span>2</span>
+                        </div>
+                        <div id="parallel3" class="demo-element">
+                            <i class="fas fa-triangle"></i>
+                            <span>3</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$(".element").each(function() {
+    $(this).animate({
+        left: "200px",
+        opacity: 0.5
+    }, "slow");
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Complex Sequence -->
+            <section class="example-section">
+                <h2>Karmaşık Sekans</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="startComplexBtn">Sekansı Başlat</button>
+                        <button id="resetComplexBtn">Sıfırla</button>
+                    </div>
+                    <div class="animation-container complex-container">
+                        <div id="complex1" class="demo-element">
+                            <i class="fas fa-star"></i>
+                            <span>A</span>
+                        </div>
+                        <div id="complex2" class="demo-element">
+                            <i class="fas fa-heart"></i>
+                            <span>B</span>
+                        </div>
+                        <div id="complex3" class="demo-element">
+                            <i class="fas fa-bolt"></i>
+                            <span>C</span>
+                        </div>
+                    </div>
+                    <div id="complexProgress" class="progress-box"></div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>// Karmaşık animasyon sekansı
+$("#elementA").animate({...})
+    .promise()
+    .then(() => {
+        return Promise.all([
+            $("#elementB").fadeIn().promise(),
+            $("#elementC").slideDown().promise()
+        ]);
+    });</code></pre>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

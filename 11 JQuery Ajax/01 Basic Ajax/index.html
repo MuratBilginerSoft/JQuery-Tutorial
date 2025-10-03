@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temel AJAX İşlemleri</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-code"></i> Temel AJAX İşlemleri</h1>
+            <p>jQuery ile temel AJAX isteklerini öğrenin</p>
+        </header>
+
+        <div class="content">
+            <!-- Basic AJAX Request Section -->
+            <section class="example-section">
+                <h2>Temel AJAX İsteği</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+$.ajax({
+    url: 'https://api.example.com/data',
+    method: 'GET',
+    dataType: 'json',
+    success: function(response) {
+        console.log('Data received:', response);
+    },
+    error: function(xhr, status, error) {
+        console.error('Error:', error);
+    }
+});
+                        </code></pre>
+                        <button class="run-btn" data-demo="basic">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="basic-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GET Request Section -->
+            <section class="example-section">
+                <h2>GET İsteği</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+$.ajax({
+    url: 'https://jsonplaceholder.typicode.com/posts/1',
+    method: 'GET',
+    success: function(data) {
+        console.log('Post data:', data);
+    },
+    error: function(xhr, status, error) {
+        console.error('Error:', error);
+    }
+});
+                        </code></pre>
+                        <button class="run-btn" data-demo="get">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="get-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- POST Request Section -->
+            <section class="example-section">
+                <h2>POST İsteği</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+$.ajax({
+    url: 'https://jsonplaceholder.typicode.com/posts',
+    method: 'POST',
+    data: {
+        title: 'foo',
+        body: 'bar',
+        userId: 1
+    },
+    success: function(response) {
+        console.log('Created post:', response);
+    },
+    error: function(xhr, status, error) {
+        console.error('Error:', error);
+    }
+});
+                        </code></pre>
+                        <button class="run-btn" data-demo="post">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="post-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Types Section -->
+            <section class="example-section">
+                <h2>Veri Türleri</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+// JSON Data
+$.ajax({
+    url: 'https://jsonplaceholder.typicode.com/posts/1',
+    method: 'GET',
+    dataType: 'json',
+    success: function(data) {
+        console.log('JSON data:', data);
+    }
+});
+
+// Text Data
+$.ajax({
+    url: 'https://jsonplaceholder.typicode.com/posts/1',
+    method: 'GET',
+    dataType: 'text',
+    success: function(data) {
+        console.log('Text data:', data);
+    }
+});
+                        </code></pre>
+                        <button class="run-btn" data-demo="dataTypes">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="dataTypes-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="tutorial-nav">
+            <a href="../00 Ajax/index.html" class="nav-link prev">
+                <i class="fas fa-arrow-left"></i>
+                Ana Sayfa
+            </a>
+            <a href="../02 Short Methods/index.html" class="nav-link next">
+                Kısa Yöntemler
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </nav>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script src="Js/App.js"></script>
+</body>
+</html>

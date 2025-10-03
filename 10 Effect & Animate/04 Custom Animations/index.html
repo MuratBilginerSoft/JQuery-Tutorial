@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Custom Animations</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-magic"></i> Özel Animasyonlar</h1>
+            <p>jQuery'nin animate() metodunu kullanarak özel animasyonlar oluşturun</p>
+        </header>
+
+        <div class="examples-container">
+            <!-- Basic Animation -->
+            <section class="example-section">
+                <h2>Temel Animasyon</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="moveRightBtn">Sağa Hareket</button>
+                        <button id="moveLeftBtn">Sola Hareket</button>
+                        <button id="resetPositionBtn">Pozisyonu Sıfırla</button>
+                        <select id="moveSpeed">
+                            <option value="fast">Hızlı</option>
+                            <option value="slow">Yavaş</option>
+                            <option value="1000">1 saniye</option>
+                            <option value="2000">2 saniye</option>
+                        </select>
+                    </div>
+                    <div class="animation-container">
+                        <div id="moveDemo" class="demo-element">
+                            <i class="fas fa-car"></i>
+                            <span>Hareket Demo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element").animate({
+    left: "200px"
+}, "slow");</code></pre>
+                </div>
+            </section>
+
+            <!-- Multiple Properties -->
+            <section class="example-section">
+                <h2>Çoklu Özellik Animasyonu</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="multiAnimateBtn">Animasyonu Başlat</button>
+                        <button id="resetMultiBtn">Sıfırla</button>
+                        <select id="multiSpeed">
+                            <option value="fast">Hızlı</option>
+                            <option value="slow">Yavaş</option>
+                            <option value="1000">1 saniye</option>
+                            <option value="2000">2 saniye</option>
+                        </select>
+                    </div>
+                    <div class="animation-container">
+                        <div id="multiDemo" class="demo-element">
+                            <i class="fas fa-cube"></i>
+                            <span>Multi Demo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element").animate({
+    left: "200px",
+    width: "300px",
+    opacity: 0.5
+}, "slow");</code></pre>
+                </div>
+            </section>
+
+            <!-- Relative Values -->
+            <section class="example-section">
+                <h2>Göreceli Değerler</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="increaseBtn">Büyüt</button>
+                        <button id="decreaseBtn">Küçült</button>
+                        <button id="resetSizeBtn">Boyutu Sıfırla</button>
+                        <select id="relativeSpeed">
+                            <option value="fast">Hızlı</option>
+                            <option value="slow">Yavaş</option>
+                            <option value="1000">1 saniye</option>
+                            <option value="2000">2 saniye</option>
+                        </select>
+                    </div>
+                    <div class="animation-container">
+                        <div id="relativeDemo" class="demo-element">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                            <span>Göreceli Demo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element").animate({
+    width: "+=50px",
+    height: "+=50px"
+}, "slow");</code></pre>
+                </div>
+            </section>
+
+            <!-- Easing Functions -->
+            <section class="example-section">
+                <h2>Easing Fonksiyonları</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="linearBtn">Linear</button>
+                        <button id="swingBtn">Swing</button>
+                        <button id="resetEasingBtn">Sıfırla</button>
+                        <select id="easingSpeed">
+                            <option value="fast">Hızlı</option>
+                            <option value="slow">Yavaş</option>
+                            <option value="1000">1 saniye</option>
+                            <option value="2000">2 saniye</option>
+                        </select>
+                    </div>
+                    <div class="animation-container">
+                        <div id="easingDemo" class="demo-element">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Easing Demo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element").animate({
+    left: "200px"
+}, {
+    duration: "slow",
+    easing: "swing"
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Step Function -->
+            <section class="example-section">
+                <h2>Step Fonksiyonu</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="startStepBtn">Animasyonu Başlat</button>
+                        <button id="resetStepBtn">Sıfırla</button>
+                    </div>
+                    <div class="animation-container">
+                        <div id="stepDemo" class="demo-element">
+                            <i class="fas fa-tasks"></i>
+                            <span>Step Demo</span>
+                        </div>
+                    </div>
+                    <div id="stepProgress" class="progress-box"></div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element").animate({
+    left: "200px"
+}, {
+    duration: 2000,
+    step: function(now, fx) {
+        // Her adımda çalışır
+        console.log(now);
+    }
+});</code></pre>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

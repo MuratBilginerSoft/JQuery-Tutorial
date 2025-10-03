@@ -1,0 +1,136 @@
+:root {
+    --primary-color: #2196F3;
+    --secondary-color: #FF4081;
+    --background-color: #f5f5f5;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --code-background: #f8f9fa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 40px 0;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header i {
+    margin-right: 10px;
+}
+
+.selector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.selector-card {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.selector-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.selector-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.card-icon {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.selector-card:hover .card-icon {
+    transform: scale(1.1);
+}
+
+.selector-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.selector-card p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.code-preview {
+    background-color: var(--code-background);
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    color: #e83e8c;
+    overflow-x: auto;
+}
+
+.code-preview code {
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    header {
+        padding: 30px 0;
+        margin-bottom: 30px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .selector-grid {
+        grid-template-columns: 1fr;
+    }
+}

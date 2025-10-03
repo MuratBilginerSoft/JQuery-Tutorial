@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Contains Selectors</title>
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-search"></i> jQuery Contains Selectors</h1>
+            <p>Learn how to select elements based on their content in jQuery</p>
+        </header>
+
+        <div class="demo-section">
+            <h2>Metin İçeren Seçici</h2>
+            <div class="controls">
+                <button onclick="$('p:contains(önemli)').addClass('highlight')">
+                    <i class="fas fa-search-plus"></i> "önemli" Kelimesini İçerenleri Seç
+                </button>
+                <button onclick="$('p:contains(not)').addClass('highlight')">
+                    <i class="fas fa-sticky-note"></i> "not" Kelimesini İçerenleri Seç
+                </button>
+                <button onclick="$('p').removeClass('highlight')">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <p>Bu çok önemli bir mesaj!</p>
+                <p>Bu normal bir paragraf.</p>
+                <p>Bu bir not içeren paragraf.</p>
+                <p>Bu da önemli bir not!</p>
+            </div>
+            <div class="code-preview">
+                $('p:contains(önemli)').addClass('highlight');
+                $('p:contains(not)').addClass('highlight');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Element İçeren Seçici</h2>
+            <div class="controls">
+                <button onclick="$('div:has(span)').addClass('highlight')">
+                    <i class="fas fa-object-group"></i> Span İçeren Div'leri Seç
+                </button>
+                <button onclick="$('div:has(.special)').addClass('highlight')">
+                    <i class="fas fa-star"></i> .special Class'lı Element İçerenleri Seç
+                </button>
+                <button onclick="$('.content-box div').removeClass('highlight')">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box content-box">
+                <div>Normal div</div>
+                <div>
+                    <span>Span içeren div</span>
+                </div>
+                <div>
+                    <p class="special">Özel paragraf içeren div</p>
+                </div>
+                <div>
+                    <span class="special">Özel span içeren div</span>
+                </div>
+            </div>
+            <div class="code-preview">
+                $('div:has(span)').addClass('highlight');
+                $('div:has(.special)').addClass('highlight');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Empty ve Not Empty Seçici</h2>
+            <div class="controls">
+                <button onclick="$('div.box:empty').addClass('highlight')">
+                    <i class="fas fa-box"></i> Boş Div'leri Seç
+                </button>
+                <button onclick="$('div.box:not(:empty)').addClass('highlight')">
+                    <i class="fas fa-box-open"></i> Dolu Div'leri Seç
+                </button>
+                <button onclick="$('div.box').removeClass('highlight')">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <div class="box">İçerik var</div>
+                <div class="box"></div>
+                <div class="box">Başka bir içerik</div>
+                <div class="box"></div>
+            </div>
+            <div class="code-preview">
+                $('div.box:empty').addClass('highlight');
+                $('div.box:not(:empty)').addClass('highlight');
+            </div>
+        </div>
+
+        <a href="../00 Selectors/index.html" class="back-button">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <footer>
+            <p>jQuery Selector Examples &copy; 2024</p>
+        </footer>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Sayfa yüklendiğinde animasyon
+            $('.demo-section').hide().each(function(i) {
+                $(this).delay(100 * i).fadeIn(500);
+            });
+
+            // Box'ları stillendir
+            $('.box').css({
+                'padding': '10px',
+                'margin': '5px',
+                'border': '1px solid #ddd',
+                'border-radius': '4px',
+                'min-height': '40px'
+            });
+
+            // Content box içindeki div'leri stillendir
+            $('.content-box > div').css({
+                'padding': '10px',
+                'margin': '5px',
+                'border': '1px solid #ddd',
+                'border-radius': '4px'
+            });
+        });
+    </script>
+</body>
+</html>

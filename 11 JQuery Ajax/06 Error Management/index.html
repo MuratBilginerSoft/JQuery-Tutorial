@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery AJAX - Hata Yönetimi</title>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>jQuery AJAX Hata Yönetimi</h1>
+            <p>Bu bölümde jQuery AJAX'ta hata yönetimi, hata yakalama ve hata işleme yöntemlerini öğreneceğiz.</p>
+        </header>
+
+        <main>
+            <!-- Basic Error Handling -->
+            <section class="example-section" id="basic-error">
+                <h2>Temel Hata Yönetimi</h2>
+                <div class="description">
+                    <p>AJAX isteklerinde temel hata yakalama yöntemleri:</p>
+                    <ul>
+                        <li><code>.fail()</code> metodu ile hata yakalama</li>
+                        <li><code>error</code> callback fonksiyonu kullanımı</li>
+                        <li>HTTP durum kodlarına göre hata yönetimi</li>
+                    </ul>
+                </div>
+                <div class="code-example">
+                    <pre><code class="language-javascript">
+$.ajax({
+    url: 'invalid-url',
+    method: 'GET'
+})
+.done(function(response) {
+    console.log('Başarılı:', response);
+})
+.fail(function(jqXHR, textStatus, errorThrown) {
+    console.error('Hata:', textStatus, errorThrown);
+});</code></pre>
+                </div>
+                <div class="demo-container">
+                    <button class="run-btn" data-demo="basic-error">Örneği Çalıştır</button>
+                    <button class="clear-btn">Sonuçları Temizle</button>
+                    <div class="result-container">
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Global Error Handling -->
+            <section class="example-section" id="global-error">
+                <h2>Global Hata Yönetimi</h2>
+                <div class="description">
+                    <p>Tüm AJAX istekleri için genel hata yakalama ayarları:</p>
+                    <ul>
+                        <li><code>$.ajaxSetup()</code> ile global hata yönetimi</li>
+                        <li>Global AJAX event handler'lar</li>
+                        <li>Özel hata mesajları ve kullanıcı bildirimleri</li>
+                    </ul>
+                </div>
+                <div class="code-example">
+                    <pre><code class="language-javascript">
+// Global hata yönetimi ayarları
+$.ajaxSetup({
+    error: function(jqXHR, textStatus, errorThrown) {
+        console.error('Global hata yakalayıcı:', textStatus);
+    }
+});
+
+// Global AJAX event handler'lar
+$(document).ajaxError(function(event, jqXHR, settings, error) {
+    console.error('AJAX hatası:', error);
+});</code></pre>
+                </div>
+                <div class="demo-container">
+                    <button class="run-btn" data-demo="global-error">Örneği Çalıştır</button>
+                    <button class="clear-btn">Sonuçları Temizle</button>
+                    <div class="result-container">
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeout and Retry -->
+            <section class="example-section" id="timeout-retry">
+                <h2>Timeout ve Yeniden Deneme</h2>
+                <div class="description">
+                    <p>AJAX isteklerinde timeout yönetimi ve yeniden deneme mekanizmaları:</p>
+                    <ul>
+                        <li>Timeout ayarları ve yönetimi</li>
+                        <li>Otomatik yeniden deneme mekanizması</li>
+                        <li>İstek durumu takibi</li>
+                    </ul>
+                </div>
+                <div class="code-example">
+                    <pre><code class="language-javascript">
+function ajaxWithRetry(url, retries = 3) {
+    return $.ajax({
+        url: url,
+        timeout: 5000
+    }).catch(function(error) {
+        if (retries > 0) {
+            return ajaxWithRetry(url, retries - 1);
+        }
+        throw error;
+    });
+}</code></pre>
+                </div>
+                <div class="demo-container">
+                    <button class="run-btn" data-demo="timeout-retry">Örneği Çalıştır</button>
+                    <button class="clear-btn">Sonuçları Temizle</button>
+                    <div class="result-container">
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Custom Error Types -->
+            <section class="example-section" id="custom-errors">
+                <h2>Özel Hata Tipleri</h2>
+                <div class="description">
+                    <p>Özel hata tipleri ve hata işleme stratejileri:</p>
+                    <ul>
+                        <li>Özel hata sınıfları oluşturma</li>
+                        <li>Hata tipine göre özel işlemler</li>
+                        <li>Kullanıcı dostu hata mesajları</li>
+                    </ul>
+                </div>
+                <div class="code-example">
+                    <pre><code class="language-javascript">
+class AjaxError extends Error {
+    constructor(message, status, response) {
+        super(message);
+        this.name = 'AjaxError';
+        this.status = status;
+        this.response = response;
+    }
+}
+
+// Kullanımı
+$.ajax({
+    url: 'api/endpoint',
+    statusCode: {
+        404: function() {
+            throw new AjaxError('Kaynak bulunamadı', 404);
+        },
+        500: function() {
+            throw new AjaxError('Sunucu hatası', 500);
+        }
+    }
+});</code></pre>
+                </div>
+                <div class="demo-container">
+                    <button class="run-btn" data-demo="custom-errors">Örneği Çalıştır</button>
+                    <button class="clear-btn">Sonuçları Temizle</button>
+                    <div class="result-container">
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>jQuery AJAX Eğitimi - Hata Yönetimi Bölümü</p>
+        </footer>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="Js/App.js"></script>
+</body>
+</html>

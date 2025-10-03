@@ -1,0 +1,250 @@
+:root {
+    --primary-color: #2196F3;
+    --secondary-color: #FF4081;
+    --background-color: #f5f5f5;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --code-background: #f8f9fa;
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --error-color: #f44336;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 40px 0;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header i {
+    margin-right: 10px;
+}
+
+.examples-container {
+    display: grid;
+    gap: 30px;
+}
+
+.example-section {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.example-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.demo-box {
+    margin-bottom: 20px;
+}
+
+.interactive-box {
+    background-color: var(--code-background);
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.result-box {
+    background-color: var(--card-background);
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    border: 1px solid var(--primary-color);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.code-preview {
+    background-color: var(--code-background);
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+.code-preview pre {
+    margin: 0;
+}
+
+.code-preview code {
+    font-family: 'Courier New', Courier, monospace;
+    color: #e83e8c;
+}
+
+/* Button Styles */
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* Input Styles */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+/* Task List Styles */
+.task-list {
+    margin-bottom: 15px;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--card-background);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.task-item:hover {
+    background-color: var(--background-color);
+}
+
+.task-item button {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.task-item.completed {
+    background-color: var(--success-color);
+    color: white;
+}
+
+/* Progress Chain Styles */
+.progress-chain {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.progress-chain::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.chain-step {
+    position: relative;
+    background-color: var(--card-background);
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid var(--primary-color);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.chain-step.active {
+    background-color: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+.chain-step.completed {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    header {
+        padding: 30px 0;
+        margin-bottom: 30px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .progress-chain {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .progress-chain::before {
+        display: none;
+    }
+
+    .chain-step {
+        text-align: center;
+    }
+}

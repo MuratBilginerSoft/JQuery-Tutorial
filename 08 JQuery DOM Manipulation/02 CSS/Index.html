@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery CSS Manipulation</title>
+    <link rel="stylesheet" href="Css/Style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>jQuery CSS Manipulation Examples</h1>
+        
+        <section class="example-section">
+            <h2>Single CSS Property</h2>
+            <div id="singleCssDemo" class="demo-box">
+                Change my color
+            </div>
+            <button onclick="changeSingleCss()">Change Color</button>
+        </section>
+
+        <section class="example-section">
+            <h2>Multiple CSS Properties</h2>
+            <div id="multipleCssDemo" class="demo-box">
+                Change multiple styles
+            </div>
+            <button onclick="changeMultipleCss()">Change Styles</button>
+        </section>
+
+        <section class="example-section">
+            <h2>CSS with Animation</h2>
+            <div id="animationDemo" class="demo-box">
+                Animate my styles
+            </div>
+            <button onclick="animateCss()">Animate</button>
+        </section>
+
+        <section class="example-section">
+            <h2>Get CSS Value</h2>
+            <div id="getCssDemo" class="demo-box">
+                Click to see my font size
+            </div>
+            <button onclick="getCssValue()">Get Font Size</button>
+            <p id="cssValue" class="css-value"></p>
+        </section>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

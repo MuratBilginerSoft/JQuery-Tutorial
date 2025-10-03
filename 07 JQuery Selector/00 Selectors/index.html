@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Seçiciler Galerisi</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fab fa-js"></i> jQuery Seçiciler Galerisi</h1>
+            <p>jQuery'nin güçlü seçici özelliklerini keşfedin</p>
+        </header>
+
+        <div class="selector-grid">
+            <!-- Tag Selector Card -->
+            <div class="selector-card" data-path="../01 Tag/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Tag Seçiciler</h3>
+                <p>HTML etiketlerini seçme yöntemleri</p>
+                <div class="code-preview">
+                    <code>$('p'), $('div'), $('span')</code>
+                </div>
+            </div>
+
+            <!-- ID Selector Card -->
+            <div class="selector-card" data-path="../02 Id/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-fingerprint"></i>
+                </div>
+                <h3>ID Seçiciler</h3>
+                <p>Benzersiz ID'ye sahip öğeleri seçme</p>
+                <div class="code-preview">
+                    <code>$('#elementId')</code>
+                </div>
+            </div>
+
+            <!-- Class Selector Card -->
+            <div class="selector-card" data-path="../03 Class/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <h3>Class Seçiciler</h3>
+                <p>CSS sınıflarına göre öğe seçme</p>
+                <div class="code-preview">
+                    <code>$('.className')</code>
+                </div>
+            </div>
+
+            <!-- Attribute Selector Card -->
+            <div class="selector-card" data-path="../04 Attribute/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-tags"></i>
+                </div>
+                <h3>Özellik Seçiciler</h3>
+                <p>HTML özelliklerine göre seçme</p>
+                <div class="code-preview">
+                    <code>$('[type="text"]')</code>
+                </div>
+            </div>
+
+            <!-- Child Selector Card -->
+            <div class="selector-card" data-path="../05 Child/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-sitemap"></i>
+                </div>
+                <h3>Alt Öğe Seçiciler</h3>
+                <p>Alt öğeleri seçme yöntemleri</p>
+                <div class="code-preview">
+                    <code>$('ul > li')</code>
+                </div>
+            </div>
+
+            <!-- Parent Selector Card -->
+            <div class="selector-card" data-path="../06 Parent/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-level-up-alt"></i>
+                </div>
+                <h3>Üst Öğe Seçiciler</h3>
+                <p>Üst öğeleri seçme yöntemleri</p>
+                <div class="code-preview">
+                    <code>$('element').parent()</code>
+                </div>
+            </div>
+
+            <!-- Contains Selector Card -->
+            <div class="selector-card" data-path="../07 Contains/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>İçerik Seçiciler</h3>
+                <p>Metin içeriğine göre seçme</p>
+                <div class="code-preview">
+                    <code>$('p:contains("text")')</code>
+                </div>
+            </div>
+
+            <!-- Advanced Selector Card -->
+            <div class="selector-card" data-path="../08 Advanced/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <h3>Gelişmiş Seçiciler</h3>
+                <p>İleri düzey seçme teknikleri</p>
+                <div class="code-preview">
+                    <code>$('li:first'), $('li:even')</code>
+                </div>
+            </div>
+
+            <!-- Chaining Selector Card -->
+            <div class="selector-card" data-path="../09 Chaining/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                <h3>Zincirleme Seçiciler</h3>
+                <p>Seçicileri birleştirme teknikleri</p>
+                <div class="code-preview">
+                    <code>$('.class1, .class2')</code>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>jQuery Seçiciler Örnekleri &copy; 2024</p>
+    </footer>
+
+    <script src="Js/App.js"></script>
+</body>
+</html>

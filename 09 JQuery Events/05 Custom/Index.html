@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Custom Events</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-code"></i> Özel Olaylar</h1>
+            <p>jQuery ile kendi özel olaylarınızı nasıl oluşturabileceğinizi öğrenin</p>
+        </header>
+
+        <div class="examples-container">
+            <!-- Basic Custom Event -->
+            <section class="example-section">
+                <h2>Temel Özel Olay</h2>
+                <div class="demo-box">
+                    <div id="customEventDemo" class="interactive-box">
+                        <button id="triggerCustom">Özel Olayı Tetikle</button>
+                        <div id="customEventResult" class="result-box">
+                            Olay bekleniyor...
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>// Özel olayı tanımla
+$('#element').on('customEvent', function() {
+    // Olay tetiklendiğinde çalışır
+});
+
+// Özel olayı tetikle
+$('#element').trigger('customEvent');</code></pre>
+                </div>
+            </section>
+
+            <!-- Custom Event with Data -->
+            <section class="example-section">
+                <h2>Veri İçeren Özel Olay</h2>
+                <div class="demo-box">
+                    <div id="dataEventDemo" class="interactive-box">
+                        <div class="input-group">
+                            <input type="text" id="eventData" placeholder="Mesajınızı yazın...">
+                        </div>
+                        <button id="triggerWithData">Veri ile Tetikle</button>
+                        <div id="dataEventResult" class="result-box">
+                            Veri bekleniyor...
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>// Veri içeren olayı tetikle
+$('#element').trigger('customEvent', {
+    message: 'Merhaba!',
+    timestamp: new Date()
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Event Namespace -->
+            <section class="example-section">
+                <h2>Olay İsim Alanları</h2>
+                <div class="demo-box">
+                    <div id="namespaceDemo" class="interactive-box">
+                        <div class="button-group">
+                            <button id="triggerAll">Tüm Olayları Tetikle</button>
+                            <button id="triggerNamespace">Sadece .demo Olaylarını Tetikle</button>
+                        </div>
+                        <div id="namespaceResult" class="result-box">
+                            Tetiklenen olaylar burada listelenecek...
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>// İsim alanı ile olay tanımla
+$('#element').on('click.demo', function() {
+    // Sadece .demo isim alanındaki click olayı
+});
+
+// Belirli isim alanındaki olayları tetikle
+$('#element').trigger('click.demo');</code></pre>
+                </div>
+            </section>
+
+            <!-- Event Delegation -->
+            <section class="example-section">
+                <h2>Olay Delegasyonu</h2>
+                <div class="demo-box">
+                    <div id="delegationDemo" class="interactive-box">
+                        <div class="task-list">
+                            <div class="task-item">Görev 1 <button class="complete-task">Tamamla</button></div>
+                            <div class="task-item">Görev 2 <button class="complete-task">Tamamla</button></div>
+                            <div class="task-item">Görev 3 <button class="complete-task">Tamamla</button></div>
+                        </div>
+                        <button id="addTask">Yeni Görev Ekle</button>
+                        <div id="delegationResult" class="result-box">
+                            Tamamlanan görevler: 0
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>// Olay delegasyonu ile dinamik elementleri yönet
+$('#container').on('click', '.dynamic-element', function() {
+    // Dinamik elementler için olay yönetimi
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Custom Event Chain -->
+            <section class="example-section">
+                <h2>Olay Zinciri</h2>
+                <div class="demo-box">
+                    <div id="chainDemo" class="interactive-box">
+                        <div class="progress-chain">
+                            <div class="chain-step" data-step="1">Adım 1</div>
+                            <div class="chain-step" data-step="2">Adım 2</div>
+                            <div class="chain-step" data-step="3">Adım 3</div>
+                        </div>
+                        <button id="startChain">Zinciri Başlat</button>
+                        <div id="chainResult" class="result-box">
+                            Zincir bekleniyor...
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>// Olay zinciri oluştur
+$('#element')
+    .on('step1', function() {
+        // İlk adım
+        $(this).trigger('step2');
+    })
+    .on('step2', function() {
+        // İkinci adım
+        $(this).trigger('step3');
+    });</code></pre>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

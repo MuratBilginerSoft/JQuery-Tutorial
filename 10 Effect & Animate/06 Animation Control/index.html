@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Animation Control</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-sliders-h"></i> Animasyon Kontrolü</h1>
+            <p>jQuery'de animasyonları kontrol etmeyi öğrenin</p>
+        </header>
+
+        <div class="examples-container">
+            <!-- Stop Method -->
+            <section class="example-section">
+                <h2>Stop Metodu</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="startLongAnimBtn">Uzun Animasyon</button>
+                        <button id="stopBtn">Stop</button>
+                        <button id="stopAllBtn">Stop (Tümü)</button>
+                        <button id="stopJumpBtn">Stop (Atla)</button>
+                        <button id="resetStopBtn">Sıfırla</button>
+                    </div>
+                    <div class="animation-container">
+                        <div id="stopDemo" class="demo-element">
+                            <i class="fas fa-hand-paper"></i>
+                            <span>Stop Demo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>// Sadece mevcut animasyonu durdur
+$("#element").stop();
+
+// Tüm animasyonları durdur
+$("#element").stop(true);
+
+// Son konuma atla
+$("#element").stop(true, true);</code></pre>
+                </div>
+            </section>
+
+            <!-- Delay Method -->
+            <section class="example-section">
+                <h2>Delay Metodu</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="startDelayBtn">Gecikmeli Animasyon</button>
+                        <button id="resetDelayBtn">Sıfırla</button>
+                        <select id="delayTime">
+                            <option value="500">0.5 saniye</option>
+                            <option value="1000">1 saniye</option>
+                            <option value="2000">2 saniye</option>
+                            <option value="3000">3 saniye</option>
+                        </select>
+                    </div>
+                    <div class="animation-container">
+                        <div id="delayDemo" class="demo-element">
+                            <i class="fas fa-clock"></i>
+                            <span>Delay Demo</span>
+                        </div>
+                    </div>
+                    <div id="delayProgress" class="progress-box"></div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element")
+    .fadeOut()
+    .delay(1000)
+    .fadeIn();</code></pre>
+                </div>
+            </section>
+
+            <!-- Finish Method -->
+            <section class="example-section">
+                <h2>Finish Metodu</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="startFinishBtn">Animasyonu Başlat</button>
+                        <button id="finishBtn">Hemen Bitir</button>
+                        <button id="resetFinishBtn">Sıfırla</button>
+                    </div>
+                    <div class="animation-container">
+                        <div id="finishDemo" class="demo-element">
+                            <i class="fas fa-flag-checkered"></i>
+                            <span>Finish Demo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>// Tüm animasyonları hemen tamamla
+$("#element").finish();</code></pre>
+                </div>
+            </section>
+
+            <!-- Queue and Dequeue -->
+            <section class="example-section">
+                <h2>Queue ve Dequeue</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="addToQueueBtn">Kuyruğa Ekle</button>
+                        <button id="processQueueBtn">Kuyruğu İşle</button>
+                        <button id="clearQueueBtn">Kuyruğu Temizle</button>
+                        <button id="resetQueueBtn">Sıfırla</button>
+                    </div>
+                    <div class="animation-container">
+                        <div id="queueDemo" class="demo-element">
+                            <i class="fas fa-list"></i>
+                            <span>Queue Demo</span>
+                        </div>
+                    </div>
+                    <div id="queueProgress" class="progress-box"></div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>// Kuyruğa fonksiyon ekle
+$("#element").queue(function() {
+    $(this).addClass("active");
+    $(this).dequeue();
+});</code></pre>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

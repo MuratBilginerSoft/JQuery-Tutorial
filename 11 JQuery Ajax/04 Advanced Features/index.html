@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery AJAX İleri Düzey Özellikler</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-cogs"></i> AJAX İleri Düzey Özellikler</h1>
+            <p>jQuery AJAX'ın gelişmiş özelliklerini keşfedin</p>
+        </header>
+
+        <div class="content">
+            <!-- beforeSend and complete -->
+            <section class="example-section">
+                <h2>beforeSend ve complete</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+$.ajax({
+    url: 'https://jsonplaceholder.typicode.com/posts/1',
+    method: 'GET',
+    beforeSend: function(xhr) {
+        console.log('İstek başlatılıyor...');
+        xhr.setRequestHeader('Custom-Header', 'value');
+    },
+    complete: function(xhr, status) {
+        console.log('İstek tamamlandı:', status);
+    },
+    success: function(response) {
+        console.log('Veri alındı:', response);
+    }
+});
+                        </code></pre>
+                        <button class="run-btn" data-demo="beforeSend">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="beforeSend-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeout and Cache Control -->
+            <section class="example-section">
+                <h2>Timeout ve Cache Kontrolü</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+// Timeout ayarlı istek
+$.ajax({
+    url: 'https://jsonplaceholder.typicode.com/posts/1',
+    method: 'GET',
+    timeout: 5000, // 5 saniye
+    cache: false,  // Cache'i devre dışı bırak
+    success: function(response) {
+        console.log('Veri alındı:', response);
+    },
+    error: function(xhr, status, error) {
+        if (status === 'timeout') {
+            console.error('İstek zaman aşımına uğradı');
+        }
+    }
+});
+                        </code></pre>
+                        <button class="run-btn" data-demo="timeout">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="timeout-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CORS and Headers -->
+            <section class="example-section">
+                <h2>CORS ve Headers</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+$.ajax({
+    url: 'https://api.example.com/data',
+    method: 'GET',
+    crossDomain: true,
+    xhrFields: {
+        withCredentials: true
+    },
+    headers: {
+        'Authorization': 'Bearer token123',
+        'Content-Type': 'application/json'
+    },
+    success: function(response) {
+        console.log('Veri alındı:', response);
+    },
+    error: function(xhr, status, error) {
+        console.error('CORS hatası:', error);
+    }
+});
+                        </code></pre>
+                        <button class="run-btn" data-demo="cors">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="cors-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Global AJAX Event Handlers -->
+            <section class="example-section">
+                <h2>Global AJAX Event Handlers</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+// Global AJAX event handlers
+$(document).ajaxStart(function() {
+    console.log('AJAX isteği başladı');
+});
+
+$(document).ajaxStop(function() {
+    console.log('Tüm AJAX istekleri tamamlandı');
+});
+
+$(document).ajaxError(function(event, xhr, settings, error) {
+    console.error('AJAX hatası:', error);
+});
+
+// Test request
+$.ajax({
+    url: 'https://jsonplaceholder.typicode.com/posts/1',
+    method: 'GET'
+});
+                        </code></pre>
+                        <button class="run-btn" data-demo="global">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="global-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="tutorial-nav">
+            <a href="../03 Form Operations/index.html" class="nav-link prev">
+                <i class="fas fa-arrow-left"></i>
+                Form İşlemleri
+            </a>
+            <a href="../05 Promise Deferred/index.html" class="nav-link next">
+                Promise ve Deferred
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </nav>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script src="Js/App.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Content Manipulation</title>
+    <link rel="stylesheet" href="Css/Style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>jQuery Content Manipulation Examples</h1>
+        
+        <section class="example-section">
+            <h2>HTML Method</h2>
+            <div id="htmlDemo" class="demo-box">
+                <p>This is <strong>original</strong> content</p>
+            </div>
+            <button onclick="changeHtml()">Change HTML</button>
+        </section>
+
+        <section class="example-section">
+            <h2>Text Method</h2>
+            <div id="textDemo" class="demo-box">
+                <p>This is <strong>original</strong> text content</p>
+            </div>
+            <button onclick="changeText()">Change Text</button>
+        </section>
+
+        <section class="example-section">
+            <h2>Value Method</h2>
+            <input type="text" id="valueDemo" value="Original Value">
+            <button onclick="changeValue()">Change Value</button>
+        </section>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

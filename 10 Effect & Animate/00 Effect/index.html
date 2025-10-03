@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Effects & Animations</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-magic"></i> jQuery Efektler & Animasyonlar</h1>
+            <p>jQuery ile web sayfanıza hayat katın</p>
+        </header>
+
+        <div class="section-grid">
+            <!-- Basic Effects -->
+            <div class="section-card" data-path="../01 Basic Effects/index.html">
+                <div class="card-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3>Temel Efektler</h3>
+                <p>show(), hide(), toggle() metodlarını öğrenin</p>
+                <div class="code-preview">
+                    <code>$("#element").hide(1000);</code>
+                </div>
+            </div>
+
+            <!-- Slide Effects -->
+            <div class="section-card" data-path="../02 Slide Effects/index.html">
+                <div class="card-icon">
+                    <i class="fas fa-arrows-alt-v"></i>
+                </div>
+                <h3>Kayma Efektleri</h3>
+                <p>slideUp(), slideDown(), slideToggle() metodlarını keşfedin</p>
+                <div class="code-preview">
+                    <code>$("#element").slideToggle();</code>
+                </div>
+            </div>
+
+            <!-- Fade Effects -->
+            <div class="section-card" data-path="../03 Fade Effects/index.html">
+                <div class="card-icon">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <h3>Solma Efektleri</h3>
+                <p>fadeIn(), fadeOut(), fadeTo() metodlarıyla çalışın</p>
+                <div class="code-preview">
+                    <code>$("#element").fadeOut("slow");</code>
+                </div>
+            </div>
+
+            <!-- Custom Animations -->
+            <div class="section-card" data-path="../04 Custom/index.html">
+                <div class="card-icon">
+                    <i class="fas fa-running"></i>
+                </div>
+                <h3>Özel Animasyonlar</h3>
+                <p>animate() metoduyla kendi animasyonlarınızı oluşturun</p>
+                <div class="code-preview">
+                    <code>$("#element").animate({left: '250px'});</code>
+                </div>
+            </div>
+
+            <!-- Animation Sequences -->
+            <div class="section-card" data-path="../05 Sequence/index.html">
+                <div class="card-icon">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h3>Animasyon Zincirleri</h3>
+                <p>Sıralı ve karmaşık animasyonlar oluşturun</p>
+                <div class="code-preview">
+                    <code>$("#element").fadeIn().slideUp().fadeOut();</code>
+                </div>
+            </div>
+
+            <!-- Animation Control -->
+            <div class="section-card" data-path="../06 Control/index.html">
+                <div class="card-icon">
+                    <i class="fas fa-sliders-h"></i>
+                </div>
+                <h3>Animasyon Kontrolü</h3>
+                <p>stop(), delay() ve callback fonksiyonlarını öğrenin</p>
+                <div class="code-preview">
+                    <code>$("#element").stop().delay(1000);</code>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

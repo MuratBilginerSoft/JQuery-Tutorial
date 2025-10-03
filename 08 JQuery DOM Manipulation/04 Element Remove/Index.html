@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Element Remove</title>
+    <link rel="stylesheet" href="Css/Style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>jQuery Element Remove Examples</h1>
+        
+        <section class="example-section">
+            <h2>Remove Method</h2>
+            <div id="removeDemo" class="demo-box">
+                <p>This element will be removed</p>
+                <button onclick="removeElement()">Remove Element</button>
+                <button onclick="restoreElement()">Restore Element</button>
+            </div>
+        </section>
+
+        <section class="example-section">
+            <h2>Empty Method</h2>
+            <div id="emptyDemo" class="demo-box">
+                <p>First paragraph</p>
+                <p>Second paragraph</p>
+                <p>Third paragraph</p>
+                <button onclick="emptyContainer()">Empty Container</button>
+                <button onclick="restoreContainer()">Restore Content</button>
+            </div>
+        </section>
+
+        <section class="example-section">
+            <h2>Detach Method</h2>
+            <div id="detachDemo" class="demo-box">
+                <p id="detachElement" class="clickable">Click count: 0</p>
+                <button onclick="detachElement()">Detach Element</button>
+                <button onclick="reattachElement()">Reattach Element</button>
+            </div>
+        </section>
+
+        <section class="example-section">
+            <h2>Remove With Animation</h2>
+            <div id="animatedRemoveDemo" class="demo-box">
+                <div class="removable-items">
+                    <div class="item">Item 1 <span class="remove-btn">×</span></div>
+                    <div class="item">Item 2 <span class="remove-btn">×</span></div>
+                    <div class="item">Item 3 <span class="remove-btn">×</span></div>
+                </div>
+                <button onclick="addItem()">Add New Item</button>
+            </div>
+        </section>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Basic Effects</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-eye"></i> Temel Efektler</h1>
+            <p>jQuery'nin temel gösterme/gizleme efektlerini öğrenin</p>
+        </header>
+
+        <div class="examples-container">
+            <!-- Show/Hide Example -->
+            <section class="example-section">
+                <h2>Show ve Hide</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="showBtn">Göster</button>
+                        <button id="hideBtn">Gizle</button>
+                        <select id="showHideSpeed">
+                            <option value="fast">Hızlı</option>
+                            <option value="slow">Yavaş</option>
+                            <option value="1000">1 saniye</option>
+                            <option value="2000">2 saniye</option>
+                        </select>
+                    </div>
+                    <div id="showHideDemo" class="demo-element">
+                        <i class="fas fa-star"></i>
+                        <span>Show/Hide Demo</span>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element").show("slow");
+$("#element").hide(1000);</code></pre>
+                </div>
+            </section>
+
+            <!-- Toggle Example -->
+            <section class="example-section">
+                <h2>Toggle</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="toggleBtn">Toggle</button>
+                        <select id="toggleSpeed">
+                            <option value="fast">Hızlı</option>
+                            <option value="slow">Yavaş</option>
+                            <option value="1000">1 saniye</option>
+                            <option value="2000">2 saniye</option>
+                        </select>
+                    </div>
+                    <div id="toggleDemo" class="demo-element">
+                        <i class="fas fa-toggle-on"></i>
+                        <span>Toggle Demo</span>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element").toggle("slow");</code></pre>
+                </div>
+            </section>
+
+            <!-- Multiple Elements -->
+            <section class="example-section">
+                <h2>Çoklu Elementler</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="showAllBtn">Tümünü Göster</button>
+                        <button id="hideAllBtn">Tümünü Gizle</button>
+                        <button id="toggleAllBtn">Tümünü Toggle</button>
+                    </div>
+                    <div class="multi-demo">
+                        <div class="demo-element">Element 1</div>
+                        <div class="demo-element">Element 2</div>
+                        <div class="demo-element">Element 3</div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$(".elements").hide("slow");</code></pre>
+                </div>
+            </section>
+
+            <!-- Callback Functions -->
+            <section class="example-section">
+                <h2>Callback Fonksiyonları</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="callbackBtn">Efekt Başlat</button>
+                    </div>
+                    <div id="callbackDemo" class="demo-element">
+                        <i class="fas fa-code"></i>
+                        <span>Callback Demo</span>
+                    </div>
+                    <div id="callbackResult" class="result-box">
+                        Sonuç burada görünecek...
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element").hide("slow", function() {
+    console.log("Efekt tamamlandı!");
+});</code></pre>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

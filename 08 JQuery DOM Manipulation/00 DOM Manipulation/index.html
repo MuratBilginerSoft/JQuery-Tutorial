@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery DOM Manipülasyon Galerisi</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fab fa-js"></i> jQuery DOM Manipülasyon Galerisi</h1>
+            <p>jQuery'nin güçlü DOM manipülasyon özelliklerini keşfedin</p>
+        </header>
+
+        <div class="selector-grid">
+            <!-- Content Manipulation Card -->
+            <div class="selector-card" data-path="../01 Content/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <h3>İçerik Manipülasyonu</h3>
+                <p>HTML ve metin içeriğini değiştirme yöntemleri</p>
+                <div class="code-preview">
+                    <code>html(), text(), val()</code>
+                </div>
+            </div>
+
+            <!-- CSS Manipulation Card -->
+            <div class="selector-card" data-path="../02 CSS/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>CSS Manipülasyonu</h3>
+                <p>Stil özelliklerini dinamik olarak değiştirme</p>
+                <div class="code-preview">
+                    <code>css(), animate()</code>
+                </div>
+            </div>
+
+            <!-- Element Add Card -->
+            <div class="selector-card" data-path="../03 Element Add/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-plus-circle"></i>
+                </div>
+                <h3>Element Ekleme</h3>
+                <p>DOM'a yeni elementler ekleme yöntemleri</p>
+                <div class="code-preview">
+                    <code>append(), prepend(), after()</code>
+                </div>
+            </div>
+
+            <!-- Element Remove Card -->
+            <div class="selector-card" data-path="../04 Element Remove/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-minus-circle"></i>
+                </div>
+                <h3>Element Silme</h3>
+                <p>DOM'dan element kaldırma yöntemleri</p>
+                <div class="code-preview">
+                    <code>remove(), empty(), detach()</code>
+                </div>
+            </div>
+
+            <!-- Class Manipulation Card -->
+            <div class="selector-card" data-path="../05 Class/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-tags"></i>
+                </div>
+                <h3>Class Manipülasyonu</h3>
+                <p>CSS sınıflarını dinamik olarak yönetme</p>
+                <div class="code-preview">
+                    <code>addClass(), removeClass()</code>
+                </div>
+            </div>
+
+            <!-- Attribute Manipulation Card -->
+            <div class="selector-card" data-path="../06 Attribute/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <h3>Özellik Manipülasyonu</h3>
+                <p>HTML özelliklerini değiştirme yöntemleri</p>
+                <div class="code-preview">
+                    <code>attr(), removeAttr(), data()</code>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

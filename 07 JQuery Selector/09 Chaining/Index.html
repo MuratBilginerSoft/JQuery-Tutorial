@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Chaining Selectors</title>
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-link"></i> jQuery Chaining Selectors</h1>
+            <p>Learn how to chain multiple jQuery methods for complex operations</p>
+        </header>
+
+        <div class="demo-section">
+            <h2>Basit Method Chaining</h2>
+            <div class="controls">
+                <button onclick="$('#chainDemo').css('color', '#e91e63').fadeOut(1000).fadeIn(1000)">
+                    <i class="fas fa-magic"></i> Renk Değiştir ve Animasyon
+                </button>
+                <button onclick="$('#chainDemo').css('color', '')">
+                    <i class="fas fa-undo"></i> Sıfırla
+                </button>
+            </div>
+            <div class="result-box">
+                <p id="chainDemo">Bu metin animate edilecek!</p>
+            </div>
+            <div class="code-preview">
+                $('#chainDemo')
+                    .css('color', '#e91e63')
+                    .fadeOut(1000)
+                    .fadeIn(1000);
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Stil ve Class Chaining</h2>
+            <div class="controls">
+                <button onclick="$('.chain-box').addClass('highlight').css({'padding': '20px', 'fontSize': '18px'}).find('span').css('color', '#e91e63')">
+                    <i class="fas fa-paint-brush"></i> Çoklu Stil Uygula
+                </button>
+                <button onclick="$('.chain-box').removeClass('highlight').css({'padding': '', 'fontSize': ''}).find('span').css('color', '')">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <div class="chain-box">
+                    Bu bir test metnidir ve içinde bir <span>özel metin</span> bulunmaktadır.
+                </div>
+            </div>
+            <div class="code-preview">
+                $('.chain-box')
+                    .addClass('highlight')
+                    .css({
+                        'padding': '20px',
+                        'fontSize': '18px'
+                    })
+                    .find('span')
+                    .css('color', '#e91e63');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Animasyon Chaining</h2>
+            <div class="controls">
+                <button onclick="$('.animate-box').slideUp(500).slideDown(500).animate({opacity: 0.5}, 500).animate({opacity: 1}, 500)">
+                    <i class="fas fa-film"></i> Animasyon Zinciri
+                </button>
+                <button onclick="$('.animate-box').stop(true).css({opacity: ''})">
+                    <i class="fas fa-stop"></i> Durdur
+                </button>
+            </div>
+            <div class="result-box">
+                <div class="animate-box" style="background-color: #f0f0f0; padding: 20px; border-radius: 8px;">
+                    Bu kutu üzerinde birden fazla animasyon uygulanacak!
+                </div>
+            </div>
+            <div class="code-preview">
+                $('.animate-box')
+                    .slideUp(500)
+                    .slideDown(500)
+                    .animate({opacity: 0.5}, 500)
+                    .animate({opacity: 1}, 500);
+            </div>
+        </div>
+
+        <a href="../00 Selectors/index.html" class="back-button">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <footer>
+            <p>jQuery Selector Examples &copy; 2024</p>
+        </footer>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Sayfa yüklendiğinde animasyon
+            $('.demo-section').hide().each(function(i) {
+                $(this).delay(100 * i).fadeIn(500);
+            });
+
+            // Chain box'ı stillendir
+            $('.chain-box').css({
+                'border': '1px solid #ddd',
+                'border-radius': '4px',
+                'padding': '10px',
+                'margin': '5px 0'
+            });
+        });
+    </script>
+</body>
+</html>

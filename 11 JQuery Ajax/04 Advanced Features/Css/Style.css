@@ -1,0 +1,361 @@
+:root {
+    --primary-color: #673AB7;
+    --secondary-color: #FF4081;
+    --background-color: #f5f5f5;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --text-light: #666666;
+    --border-color: #e0e0e0;
+    --hover-color: #ede7f6;
+    --success-color: #4CAF50;
+    --error-color: #f44336;
+    --code-background: #272822;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 40px 0;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header i {
+    margin-right: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* Content Styles */
+.content {
+    margin-bottom: 40px;
+}
+
+.example-section {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.example-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.example-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.example-section h2::before {
+    content: '⚙️';
+    font-size: 0.9em;
+}
+
+.example-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Code Demo Styles */
+.code-demo {
+    position: relative;
+    background-color: var(--code-background);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.code-demo pre {
+    margin: 0;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.code-demo code {
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+}
+
+.run-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.run-btn:hover {
+    background-color: #388E3C;
+    transform: scale(1.05);
+}
+
+.run-btn:active {
+    transform: scale(0.95);
+}
+
+/* Result Container Styles */
+.result-container {
+    background-color: var(--code-background);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.result-container:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.result-header {
+    background-color: #1e1f1c;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result-header h3 {
+    color: white;
+    font-size: 1.2em;
+}
+
+.clear-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.clear-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.result-content {
+    padding: 20px;
+    color: #f8f8f2;
+    font-family: 'Fira Code', monospace;
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Navigation Styles */
+.tutorial-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: var(--hover-color);
+}
+
+.nav-link.prev:hover {
+    transform: translateX(-5px);
+}
+
+.nav-link.next:hover {
+    transform: translateX(5px);
+}
+
+/* Success and Error Messages */
+.success-message {
+    color: var(--success-color);
+    background-color: rgba(76, 175, 80, 0.1);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--success-color);
+}
+
+.error-message {
+    color: var(--error-color);
+    background-color: rgba(244, 67, 54, 0.1);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--error-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    header {
+        padding: 30px 0;
+        margin-bottom: 30px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .example-container {
+        grid-template-columns: 1fr;
+    }
+
+    .example-section {
+        padding: 20px;
+    }
+
+    .nav-link {
+        padding: 8px 16px;
+    }
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.example-section {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Loading Animation */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+}
+
+/* Code Block Enhancements */
+.code-demo pre {
+    position: relative;
+    padding-top: 30px;
+}
+
+.code-demo pre::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ff5f56;
+    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e1f1c;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Console Output Styling */
+.console-output {
+    font-family: 'Fira Code', monospace;
+    padding: 10px;
+    background-color: #1e1f1c;
+    border-radius: 4px;
+    margin: 5px 0;
+}
+
+.console-log {
+    color: #a6e22e;
+}
+
+.console-error {
+    color: #f92672;
+}
+
+.console-warn {
+    color: #e6db74;
+}
+
+.console-info {
+    color: #66d9ef;
+}

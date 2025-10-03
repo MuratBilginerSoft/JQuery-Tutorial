@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Class Selectors</title>
+    <link rel="stylesheet" href="../00 Selectors/Css/Common.css">
+    <link rel="stylesheet" href="Css/Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-layer-group"></i> jQuery Class Selectors</h1>
+            <p>Learn how to select HTML elements using class attributes in jQuery</p>
+        </header>
+
+        <div class="demo-section">
+            <h2>Tekil Class Seçici</h2>
+            <div class="controls">
+                <button onclick="selectHighlightElements()">
+                    <i class="fas fa-highlighter"></i> Vurgulanacak Elementleri Seç
+                </button>
+                <button onclick="clearHighlightElements()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <p class="important">Bu önemli bir mesaj!</p>
+                <p>Bu normal bir paragraf</p>
+                <p class="important">Bu da önemli bir mesaj!</p>
+            </div>
+            <div class="code-preview">
+                $('.important').addClass('highlight');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Çoklu Class Seçici</h2>
+            <div class="controls">
+                <button onclick="selectMultipleClasses()">
+                    <i class="fas fa-object-group"></i> Özel Kutuları Seç
+                </button>
+                <button onclick="clearMultipleClasses()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <div class="box">Normal kutu</div>
+                <div class="box active">Özel kutu</div>
+                <div class="box">Normal kutu</div>
+                <div class="box active">Özel kutu</div>
+            </div>
+            <div class="code-preview">
+                $('.box.active').addClass('selected');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Class Ekleme/Çıkarma</h2>
+            <div class="controls">
+                <button onclick="selectImportantElements()">
+                    <i class="fas fa-toggle-on"></i> Class'ı Aç/Kapa
+                </button>
+                <button onclick="clearImportantElements()">
+                    <i class="fas fa-undo"></i> Sıfırla
+                </button>
+            </div>
+            <div class="result-box">
+                <p class="toggle-me">Bu paragrafın class'ı değişecek</p>
+                <p class="toggle-me">Bu paragrafın da class'ı değişecek</p>
+            </div>
+            <div class="code-preview">
+                $('.toggle-me').toggleClass('highlight');
+            </div>
+        </div>
+
+        <a href="../00 Selectors/index.html" class="back-button">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <footer>
+            <p>jQuery Selector Examples &copy; 2024</p>
+        </footer>
+    </div>
+
+    <script src="Js/App.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery DOM Traversing - Ebeveyn Yöntemleri</title>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ebeveyn Yöntemleri</h1>
+            <p>jQuery ile DOM elementlerinin üst elementlerine erişme yöntemleri</p>
+        </header>
+
+        <main>
+            <!-- parent() Method -->
+            <section class="example-section">
+                <h2>parent() Metodu</h2>
+                <p class="description">
+                    Seçili elementin doğrudan üst elementini seçer. Her elementin yalnızca bir parent'ı olabilir.
+                </p>
+                
+                <div class="demo-container">
+                    <div class="demo-element">
+                        <div class="parent">
+                            <p>Ben bir paragrafım <span class="highlight">ve bu bir span</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="code-example">
+                        <pre><code class="language-javascript">
+// span elementinin parent'ını seç
+$("span.highlight").parent().css("background-color", "yellow");
+                        </code></pre>
+                    </div>
+                    
+                    <button class="run-btn" data-demo="parent">Örneği Çalıştır</button>
+                    <button class="reset-btn">Sıfırla</button>
+                </div>
+            </section>
+
+            <!-- parents() Method -->
+            <section class="example-section">
+                <h2>parents() Metodu</h2>
+                <p class="description">
+                    Seçili elementin tüm üst elementlerini seçer. HTML elementine kadar olan tüm üst elementleri kapsar.
+                </p>
+                
+                <div class="demo-container">
+                    <div class="demo-element">
+                        <div class="grandparent">
+                            <div class="parent">
+                                <p>Bir paragraf ve <span class="highlight">önemli bir span</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="code-example">
+                        <pre><code class="language-javascript">
+// span elementinin tüm üst elementlerini seç
+$("span.highlight").parents().css("border", "2px solid red");
+                        </code></pre>
+                    </div>
+                    
+                    <button class="run-btn" data-demo="parents">Örneği Çalıştır</button>
+                    <button class="reset-btn">Sıfırla</button>
+                </div>
+            </section>
+
+            <!-- parentsUntil() Method -->
+            <section class="example-section">
+                <h2>parentsUntil() Metodu</h2>
+                <p class="description">
+                    Seçili elementten başlayarak belirtilen elemente kadar olan tüm üst elementleri seçer.
+                </p>
+                
+                <div class="demo-container">
+                    <div class="demo-element">
+                        <div class="level-3">
+                            <div class="level-2">
+                                <div class="level-1">
+                                    <p>Test paragrafı ve <span class="highlight">özel span</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="code-example">
+                        <pre><code class="language-javascript">
+// span elementinden level-3 class'ına kadar olan elementleri seç
+$("span.highlight").parentsUntil(".level-3").css({
+    "border": "2px solid blue",
+    "padding": "5px"
+});
+                        </code></pre>
+                    </div>
+                    
+                    <button class="run-btn" data-demo="parentsUntil">Örneği Çalıştır</button>
+                    <button class="reset-btn">Sıfırla</button>
+                </div>
+            </section>
+
+            <!-- Interactive Example -->
+            <section class="example-section">
+                <h2>İnteraktif Örnek</h2>
+                <p class="description">
+                    Aşağıdaki örnekte farklı ebeveyn seçme yöntemlerini deneyebilirsiniz.
+                </p>
+                
+                <div class="demo-container">
+                    <div class="interactive-demo">
+                        <div class="level-3">Seviye 3
+                            <div class="level-2">Seviye 2
+                                <div class="level-1">Seviye 1
+                                    <p class="target">Hedef Element</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="control-panel">
+                        <button class="demo-btn" data-method="parent">parent()</button>
+                        <button class="demo-btn" data-method="parents">parents()</button>
+                        <button class="demo-btn" data-method="parentsUntil">parentsUntil('.level-3')</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>jQuery DOM Traversing - Ebeveyn Yöntemleri</p>
+            <div class="nav-links">
+                <a href="../00 Traversing/index.html" class="nav-link prev">
+                    <i class="fas fa-arrow-left"></i>
+                    Genel Bakış
+                </a>
+                <a href="../02 Child Methods/index.html" class="nav-link next">
+                    Çocuk Yöntemleri
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="Js/App.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery AJAX Kısa Yöntemler</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-bolt"></i> AJAX Kısa Yöntemler</h1>
+            <p>jQuery'nin pratik AJAX kısayollarını keşfedin</p>
+        </header>
+
+        <div class="content">
+            <!-- $.get() Section -->
+            <section class="example-section">
+                <h2>$.get() Metodu</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+// Basit GET isteği
+$.get('https://jsonplaceholder.typicode.com/posts/1', 
+    function(data) {
+        console.log('Data:', data);
+    }
+);
+
+// Parametreli GET isteği
+$.get('https://jsonplaceholder.typicode.com/posts', {
+    userId: 1,
+    _limit: 2
+}, function(data) {
+    console.log('Posts:', data);
+});
+                        </code></pre>
+                        <button class="run-btn" data-demo="get">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="get-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- $.post() Section -->
+            <section class="example-section">
+                <h2>$.post() Metodu</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+// Basit POST isteği
+$.post('https://jsonplaceholder.typicode.com/posts',
+    {
+        title: 'Yeni Gönderi',
+        body: 'Gönderi içeriği',
+        userId: 1
+    },
+    function(response) {
+        console.log('Created:', response);
+    }
+);
+                        </code></pre>
+                        <button class="run-btn" data-demo="post">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="post-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- $.getJSON() Section -->
+            <section class="example-section">
+                <h2>$.getJSON() Metodu</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+// JSON verisi alma
+$.getJSON('https://jsonplaceholder.typicode.com/users/1',
+    function(data) {
+        console.log('User data:', data);
+    }
+);
+
+// Parametreli JSON isteği
+$.getJSON('https://jsonplaceholder.typicode.com/comments', {
+    postId: 1,
+    _limit: 2
+}, function(data) {
+    console.log('Comments:', data);
+});
+                        </code></pre>
+                        <button class="run-btn" data-demo="getJson">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="getJson-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- $.getScript() Section -->
+            <section class="example-section">
+                <h2>$.getScript() Metodu</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+// Harici script yükleme
+$.getScript('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js',
+    function() {
+        console.log('Moment.js yüklendi');
+        console.log('Şu an:', moment().format('LLLL'));
+    }
+);
+                        </code></pre>
+                        <button class="run-btn" data-demo="getScript">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="getScript-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="tutorial-nav">
+            <a href="../01 Basic Ajax/index.html" class="nav-link prev">
+                <i class="fas fa-arrow-left"></i>
+                Temel AJAX
+            </a>
+            <a href="../03 Form Operations/index.html" class="nav-link next">
+                Form İşlemleri
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </nav>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script src="Js/App.js"></script>
+</body>
+</html>

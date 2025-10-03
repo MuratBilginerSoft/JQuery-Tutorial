@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Advanced Selectors</title>
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-puzzle-piece"></i> jQuery Advanced Selectors</h1>
+            <p>Learn how to use advanced jQuery selectors for complex selections</p>
+        </header>
+
+        <div class="demo-section">
+            <h2>First, Last ve Eq Seçiciler</h2>
+            <div class="controls">
+                <button onclick="$('.items li:first').addClass('highlight')">
+                    <i class="fas fa-step-backward"></i> İlk Elementi Seç
+                </button>
+                <button onclick="$('.items li:last').addClass('highlight')">
+                    <i class="fas fa-step-forward"></i> Son Elementi Seç
+                </button>
+                <button onclick="$('.items li:eq(2)').addClass('highlight')">
+                    <i class="fas fa-bullseye"></i> 3. Elementi Seç
+                </button>
+                <button onclick="$('.items li').removeClass('highlight')">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <ul class="items">
+                    <li>Element 1</li>
+                    <li>Element 2</li>
+                    <li>Element 3</li>
+                    <li>Element 4</li>
+                    <li>Element 5</li>
+                </ul>
+            </div>
+            <div class="code-preview">
+                $('.items li:first').addClass('highlight');
+                $('.items li:last').addClass('highlight');
+                $('.items li:eq(2)').addClass('highlight');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Even ve Odd Seçiciler</h2>
+            <div class="controls">
+                <button onclick="$('.rows tr:even').addClass('highlight')">
+                    <i class="fas fa-th-list"></i> Çift Satırları Seç
+                </button>
+                <button onclick="$('.rows tr:odd').addClass('highlight')">
+                    <i class="fas fa-th"></i> Tek Satırları Seç
+                </button>
+                <button onclick="$('.rows tr').removeClass('highlight')">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <table class="rows" style="width: 100%; border-collapse: collapse;">
+                    <tr><td>Satır 1</td></tr>
+                    <tr><td>Satır 2</td></tr>
+                    <tr><td>Satır 3</td></tr>
+                    <tr><td>Satır 4</td></tr>
+                    <tr><td>Satır 5</td></tr>
+                </table>
+            </div>
+            <div class="code-preview">
+                $('.rows tr:even').addClass('highlight');
+                $('.rows tr:odd').addClass('highlight');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Not ve Filter Seçiciler</h2>
+            <div class="controls">
+                <button onclick="$('.elements div').not('.exclude').addClass('highlight')">
+                    <i class="fas fa-filter"></i> Exclude Olmayanları Seç
+                </button>
+                <button onclick="$('.elements div').filter('.special').addClass('highlight')">
+                    <i class="fas fa-star"></i> Special Olanları Seç
+                </button>
+                <button onclick="$('.elements div').removeClass('highlight')">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box elements">
+                <div>Normal Element</div>
+                <div class="exclude">Hariç Tutulan</div>
+                <div class="special">Özel Element</div>
+                <div>Normal Element</div>
+                <div class="special exclude">Özel ve Hariç</div>
+            </div>
+            <div class="code-preview">
+                $('.elements div').not('.exclude').addClass('highlight');
+                $('.elements div').filter('.special').addClass('highlight');
+            </div>
+        </div>
+
+        <a href="../00 Selectors/index.html" class="back-button">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <footer>
+            <p>jQuery Selector Examples &copy; 2024</p>
+        </footer>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Sayfa yüklendiğinde animasyon
+            $('.demo-section').hide().each(function(i) {
+                $(this).delay(100 * i).fadeIn(500);
+            });
+
+            // Tablo hücrelerini stillendir
+            $('.rows td').css({
+                'padding': '10px',
+                'border': '1px solid #ddd'
+            });
+
+            // Element'leri stillendir
+            $('.elements div').css({
+                'padding': '10px',
+                'margin': '5px',
+                'border': '1px solid #ddd',
+                'border-radius': '4px'
+            });
+        });
+    </script>
+</body>
+</html>

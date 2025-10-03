@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Class Manipulation</title>
+    <link rel="stylesheet" href="Css/Style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>jQuery Class Manipulation Examples</h1>
+        
+        <section class="example-section">
+            <h2>Add & Remove Class</h2>
+            <div id="addRemoveDemo" class="demo-box">
+                <div class="target-element">Click buttons to add/remove highlight class</div>
+                <div class="button-group">
+                    <button onclick="addClass()">Add Class</button>
+                    <button onclick="removeClass()">Remove Class</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="example-section">
+            <h2>Toggle Class</h2>
+            <div id="toggleDemo" class="demo-box">
+                <div class="target-element">Click the button to toggle highlight class</div>
+                <div class="button-group">
+                    <button onclick="toggleClass()">Toggle Class</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="example-section">
+            <h2>Has Class Check</h2>
+            <div id="hasClassDemo" class="demo-box">
+                <div class="target-element">Check if this element has highlight class</div>
+                <div id="hasClassResult" class="result">Status: No highlight class</div>
+                <div class="button-group">
+                    <button onclick="checkClass()">Check Class</button>
+                    <button onclick="toggleClassForCheck()">Toggle Class</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="example-section">
+            <h2>Multiple Classes</h2>
+            <div id="multipleClassDemo" class="demo-box">
+                <div class="target-element">Apply multiple classes</div>
+                <div class="button-group">
+                    <button onclick="addMultipleClasses()">Add Multiple</button>
+                    <button onclick="removeMultipleClasses()">Remove Multiple</button>
+                    <button onclick="toggleMultipleClasses()">Toggle Multiple</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

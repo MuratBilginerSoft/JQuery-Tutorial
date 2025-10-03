@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Form İşlemleri</title>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- 1. Form Elemanlarına Erişim -->
+        <section class="mb-5">
+            <h3>1. Form Elemanlarına Erişim</h3>
+            <form id="myForm" class="border p-3 rounded">
+                <div class="mb-3">
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Kullanıcı Adı"/>
+                </div>
+                <div class="mb-3">
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Şifre"/>
+                </div>
+                <button type="submit" class="btn btn-primary">Gönder</button>
+            </form>
+        </section>
+
+        <!-- 2. Form Değerlerini Alma -->
+        <section class="mb-5">
+            <h3>2. Form Değerlerini Alma</h3>
+            <form id="exampleForm" class="border p-3 rounded">
+                <div class="mb-3">
+                    <input type="text" id="input1" class="form-control" value="Varsayılan Değer" />
+                </div>
+                <div class="mb-3">
+                    <textarea id="textarea1" class="form-control">Başlangıç Metni</textarea>
+                </div>
+                <button id="showValues" class="btn btn-info">Değerleri Göster</button>
+            </form>
+        </section>
+
+        <!-- 3. Form Doğrulama -->
+        <section class="mb-5">
+            <h3>3. Form Doğrulama</h3>
+            <form id="validationForm" class="border p-3 rounded">
+                <div class="mb-3">
+                    <input type="email" id="email" class="form-control" placeholder="Email" />
+                    <div class="invalid-feedback">Geçerli bir email adresi giriniz!</div>
+                </div>
+                <button type="submit" class="btn btn-warning">Doğrula ve Gönder</button>
+            </form>
+        </section>
+
+        <!-- 4. Özel Form Gönderimi -->
+        <section class="mb-5">
+            <h3>4. Özel Form Gönderimi</h3>
+            <form id="customSubmitForm" class="border p-3 rounded">
+                <div class="mb-3">
+                    <input type="text" id="name" class="form-control" placeholder="Adınız" />
+                </div>
+                <button type="submit" class="btn btn-success">Özel Gönder</button>
+            </form>
+        </section>
+
+        <!-- 5. AJAX Form -->
+        <section class="mb-5">
+            <h3>5. AJAX Form</h3>
+            <form id="ajaxForm" class="border p-3 rounded">
+                <div class="mb-3">
+                    <input type="text" id="ajaxUsername" name="username" class="form-control" placeholder="Kullanıcı Adı" />
+                </div>
+                <div class="mb-3">
+                    <input type="password" id="ajaxPassword" name="password" class="form-control" placeholder="Şifre" />
+                </div>
+                <button type="submit" class="btn btn-secondary">AJAX ile Gönder</button>
+            </form>
+        </section>
+
+        <!-- 6. Değişiklikleri İzleme -->
+        <section class="mb-5">
+            <h3>6. Değişiklikleri İzleme</h3>
+            <form id="changeForm" class="border p-3 rounded">
+                <div class="mb-3">
+                    <input type="text" id="fullname" class="form-control" placeholder="Ad Soyad" />
+                </div>
+                <div id="changeOutput" class="alert alert-info mt-2" style="display: none;"></div>
+            </form>
+        </section>
+
+        <!-- 7. Tüm Form Verilerini Alma -->
+        <section class="mb-5">
+            <h3>7. Tüm Form Verilerini Alma</h3>
+            <form id="serializeForm" class="border p-3 rounded">
+                <div class="mb-3">
+                    <input type="text" name="username" class="form-control" placeholder="Kullanıcı Adı" />
+                </div>
+                <div class="mb-3">
+                    <input type="password" name="password" class="form-control" placeholder="Şifre" />
+                </div>
+                <button type="submit" class="btn btn-dark">Serialize Et</button>
+                <div id="serializeOutput" class="alert alert-info mt-2" style="display: none;"></div>
+            </form>
+        </section>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="Js/App.js"></script>
+</body>
+</html>

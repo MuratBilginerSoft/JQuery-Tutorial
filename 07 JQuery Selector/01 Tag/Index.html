@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Tag Selectors</title>
+    <link rel="stylesheet" href="../00 Selectors/Css/Common.css">
+    <link rel="stylesheet" href="Css/Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-tags"></i> jQuery Tag Selectors</h1>
+            <p>Learn how to select HTML elements using tag names in jQuery</p>
+        </header>
+
+        <div class="demo-section">
+            <h2>Paragraf Seçici</h2>
+            <div class="controls">
+                <button onclick="selectParagraphs()">
+                    <i class="fas fa-paint-brush"></i> Tüm Paragrafları Seç
+                </button>
+                <button onclick="clearParagraphs()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <p>Bu bir paragraf örneğidir.</p>
+                <p>Bu ikinci bir paragraftır.</p>
+                <p>Bu da üçüncü paragraftır.</p>
+            </div>
+            <div class="code-preview">
+                $('p').css('background-color', '#ffeb3b');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Başlık Seçici</h2>
+            <div class="controls">
+                <button onclick="selectHeadings()">
+                    <i class="fas fa-heading"></i> H3 Başlıkları Seç
+                </button>
+                <button onclick="clearHeadings()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <h3>Başlık 1</h3>
+                <p>Normal paragraf</p>
+                <h3>Başlık 2</h3>
+                <p>Başka bir paragraf</p>
+                <h3>Başlık 3</h3>
+            </div>
+            <div class="code-preview">
+                $('h3').css('color', '#e91e63');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Liste Seçici</h2>
+            <div class="controls">
+                <button onclick="selectListItems()">
+                    <i class="fas fa-list"></i> Liste Öğelerini Seç
+                </button>
+                <button onclick="clearListItems()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <ul>
+                    <li>Liste öğesi 1</li>
+                    <li>Liste öğesi 2</li>
+                    <li>Liste öğesi 3</li>
+                </ul>
+            </div>
+            <div class="code-preview">
+                $('li').addClass('highlight');
+            </div>
+        </div>
+
+        <a href="../00 Selectors/index.html" class="back-button">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <footer>
+            <p>jQuery Selector Examples &copy; 2024</p>
+        </footer>
+    </div>
+
+    <script src="Js/App.js"></script>
+</body>
+</html>

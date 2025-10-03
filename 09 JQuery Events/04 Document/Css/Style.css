@@ -1,0 +1,245 @@
+:root {
+    --primary-color: #2196F3;
+    --secondary-color: #FF4081;
+    --background-color: #f5f5f5;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --code-background: #f8f9fa;
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --error-color: #f44336;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 40px 0;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header i {
+    margin-right: 10px;
+}
+
+.examples-container {
+    display: grid;
+    gap: 30px;
+}
+
+.example-section {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.example-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.demo-box {
+    margin-bottom: 20px;
+}
+
+.code-preview {
+    background-color: var(--code-background);
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+.code-preview pre {
+    margin: 0;
+}
+
+.code-preview code {
+    font-family: 'Courier New', Courier, monospace;
+    color: #e83e8c;
+}
+
+/* Ready Event Styles */
+.info-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: var(--code-background);
+    border-radius: 5px;
+}
+
+.status-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--warning-color);
+    transition: background-color 0.3s ease;
+}
+
+.status-circle.ready {
+    background-color: var(--success-color);
+}
+
+/* Scroll Event Styles */
+#scrollContainer {
+    height: 200px;
+    overflow-y: auto;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+#scrollContent {
+    padding: 20px;
+    height: 600px;
+    position: relative;
+}
+
+.scroll-marker {
+    position: absolute;
+    right: 20px;
+    width: 10px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    opacity: 0.3;
+}
+
+/* Resize Event Styles */
+.window-icon {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+#windowSize {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Load/Unload Event Styles */
+.resource-loader {
+    text-align: center;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--code-background);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.status-text {
+    color: var(--text-color);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Error Event Styles */
+.error-demo {
+    text-align: center;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+.error-log {
+    padding: 15px;
+    background-color: var(--code-background);
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--error-color);
+    min-height: 100px;
+    text-align: left;
+}
+
+/* Visibility Change Styles */
+.visibility-icon {
+    font-size: 24px;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.visibility-icon.hidden {
+    color: var(--warning-color);
+}
+
+.hint-text {
+    text-align: center;
+    color: var(--text-color);
+    font-style: italic;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    header {
+        padding: 30px 0;
+        margin-bottom: 30px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    #scrollContainer {
+        height: 150px;
+    }
+}

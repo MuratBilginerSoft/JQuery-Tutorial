@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Attribute Selectors</title>
+    <link rel="stylesheet" href="../00 Selectors/Css/Common.css">
+    <link rel="stylesheet" href="Css/Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-tags"></i> jQuery Attribute Selectors</h1>
+            <p>Learn how to select HTML elements using attributes in jQuery</p>
+        </header>
+
+        <div class="demo-section">
+            <h2>Data Attribute Seçici</h2>
+            <div class="controls">
+                <button onclick="selectDataType()">
+                    <i class="fas fa-filter"></i> Önemli Öğeleri Seç
+                </button>
+                <button onclick="clearDataType()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <div data-type="normal">Normal öğe</div>
+                <div data-type="important">Önemli öğe!</div>
+                <div data-type="normal">Normal öğe</div>
+                <div data-type="important">Önemli öğe!</div>
+            </div>
+            <div class="code-preview">
+                $('[data-type="important"]').addClass('highlight');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Harici Link Seçici</h2>
+            <div class="controls">
+                <button onclick="selectExternalLinks()">
+                    <i class="fas fa-external-link-alt"></i> Harici Linkleri Seç
+                </button>
+                <button onclick="clearExternalLinks()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <a href="#">Normal link</a>
+                <a href="https://example.com" target="_blank">Harici link</a>
+                <a href="#">Normal link</a>
+                <a href="https://example.org" target="_blank">Harici link</a>
+            </div>
+            <div class="code-preview">
+                $('a[target="_blank"]').addClass('selected');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Başlangıç Değeri Seçici</h2>
+            <div class="controls">
+                <button onclick="selectStartsWith()">
+                    <i class="fas fa-arrow-right"></i> ABC ile Başlayanları Seç
+                </button>
+                <button onclick="clearStartsWith()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <div data-code="ABC123">Kod: ABC123</div>
+                <div data-code="XYZ789">Kod: XYZ789</div>
+                <div data-code="ABC456">Kod: ABC456</div>
+            </div>
+            <div class="code-preview">
+                $('div[data-code^="ABC"]').addClass('marked');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Bitiş Değeri Seçici</h2>
+            <div class="controls">
+                <button onclick="selectEndsWith()">
+                    <i class="fas fa-arrow-left"></i> 123 ile Bitenleri Seç
+                </button>
+                <button onclick="clearEndsWith()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <div data-code="ABC123">Kod: ABC123</div>
+                <div data-code="DEF456">Kod: DEF456</div>
+                <div data-code="GHI123">Kod: GHI123</div>
+            </div>
+            <div class="code-preview">
+                $('div[data-code$="123"]').addClass('highlight');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>İçeren Değer Seçici</h2>
+            <div class="controls">
+                <button onclick="selectContains()">
+                    <i class="fas fa-search"></i> "jquery" İçerenleri Seç
+                </button>
+                <button onclick="clearContains()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <div data-tag="html css">HTML ve CSS</div>
+                <div data-tag="jquery tutorial">jQuery Eğitimi</div>
+                <div data-tag="javascript">JavaScript</div>
+                <div data-tag="jquery basics">jQuery Temelleri</div>
+            </div>
+            <div class="code-preview">
+                $('div[data-tag*="jquery"]').addClass('selected');
+            </div>
+        </div>
+
+        <a href="../00 Selectors/index.html" class="back-button">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <footer>
+            <p>jQuery Selector Examples &copy; 2024</p>
+        </footer>
+    </div>
+
+    <script src="Js/App.js"></script>
+</body>
+</html>

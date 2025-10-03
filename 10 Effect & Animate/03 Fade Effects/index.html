@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Fade Effects</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-adjust"></i> Solma Efektleri</h1>
+            <p>jQuery'nin fadeIn, fadeOut, fadeToggle ve fadeTo metodlarını öğrenin</p>
+        </header>
+
+        <div class="examples-container">
+            <!-- Basic Fade -->
+            <section class="example-section">
+                <h2>Temel Solma</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="fadeInBtn">Fade In</button>
+                        <button id="fadeOutBtn">Fade Out</button>
+                        <select id="fadeSpeed">
+                            <option value="fast">Hızlı</option>
+                            <option value="slow">Yavaş</option>
+                            <option value="1000">1 saniye</option>
+                            <option value="2000">2 saniye</option>
+                        </select>
+                    </div>
+                    <div id="fadeDemo" class="demo-element">
+                        <i class="fas fa-sun"></i>
+                        <span>Fade Demo</span>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element").fadeIn("slow");
+$("#element").fadeOut(1000);</code></pre>
+                </div>
+            </section>
+
+            <!-- Fade Toggle -->
+            <section class="example-section">
+                <h2>Fade Toggle</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="fadeToggleBtn">Toggle</button>
+                        <select id="toggleFadeSpeed">
+                            <option value="fast">Hızlı</option>
+                            <option value="slow">Yavaş</option>
+                            <option value="1000">1 saniye</option>
+                            <option value="2000">2 saniye</option>
+                        </select>
+                    </div>
+                    <div id="fadeToggleDemo" class="demo-element">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Toggle Demo</span>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element").fadeToggle("slow");</code></pre>
+                </div>
+            </section>
+
+            <!-- Fade To -->
+            <section class="example-section">
+                <h2>Fade To (Opaklık Kontrolü)</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button data-opacity="0.25">25% Opaklık</button>
+                        <button data-opacity="0.5">50% Opaklık</button>
+                        <button data-opacity="0.75">75% Opaklık</button>
+                        <button data-opacity="1">100% Opaklık</button>
+                        <select id="fadeToSpeed">
+                            <option value="fast">Hızlı</option>
+                            <option value="slow">Yavaş</option>
+                            <option value="1000">1 saniye</option>
+                            <option value="2000">2 saniye</option>
+                        </select>
+                    </div>
+                    <div id="fadeToDemo" class="demo-element">
+                        <i class="fas fa-adjust"></i>
+                        <span>Fade To Demo</span>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element").fadeTo("slow", 0.5);</code></pre>
+                </div>
+            </section>
+
+            <!-- Sequential Fade -->
+            <section class="example-section">
+                <h2>Zincirleme Fade Efektleri</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="startSequenceBtn">Sekansı Başlat</button>
+                    </div>
+                    <div class="sequence-container">
+                        <div class="sequence-element">
+                            <i class="fas fa-circle"></i>
+                            <span>1</span>
+                        </div>
+                        <div class="sequence-element">
+                            <i class="fas fa-circle"></i>
+                            <span>2</span>
+                        </div>
+                        <div class="sequence-element">
+                            <i class="fas fa-circle"></i>
+                            <span>3</span>
+                        </div>
+                        <div class="sequence-element">
+                            <i class="fas fa-circle"></i>
+                            <span>4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$(".element").eq(0).fadeIn("slow")
+    .next().delay(400).fadeIn("slow")
+    .next().delay(400).fadeIn("slow");</code></pre>
+                </div>
+            </section>
+
+            <!-- Fade with Callback -->
+            <section class="example-section">
+                <h2>Callback ile Fade</h2>
+                <div class="demo-box">
+                    <div class="control-panel">
+                        <button id="startCallbackBtn">Callback Demo</button>
+                    </div>
+                    <div id="callbackDemo" class="demo-element">
+                        <i class="fas fa-code"></i>
+                        <span>Callback Demo</span>
+                    </div>
+                    <div id="callbackResult" class="result-box"></div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$("#element").fadeOut("slow", function() {
+    console.log("Fade tamamlandı!");
+    $(this).fadeIn("slow");
+});</code></pre>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

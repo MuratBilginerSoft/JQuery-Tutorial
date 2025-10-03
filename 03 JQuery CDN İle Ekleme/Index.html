@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery CDN Örneği</title>
+    
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 20px;
+            display: none;
+        }
+        
+        button {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="showButton">Göster</button>
+    <button id="hideButton">Gizle</button>
+    <button id="toggleButton">Değiştir</button>
+    
+    <div class="box"></div>
+
+    <script>
+        $(document).ready(function() {
+            // Göster butonu
+            $("#showButton").click(function() {
+                $(".box").fadeIn();
+            });
+
+            // Gizle butonu
+            $("#hideButton").click(function() {
+                $(".box").fadeOut();
+            });
+
+            // Değiştir butonu
+            $("#toggleButton").click(function() {
+                $(".box").fadeToggle();
+            });
+        });
+    </script>
+</body>
+</html>

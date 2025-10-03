@@ -1,0 +1,59 @@
+/* General Styles */
+body {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+}
+
+/* Form Styles */
+form {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Section Styles */
+section {
+    margin-bottom: 2rem;
+}
+
+h3 {
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+/* Button Hover Effects */
+.btn:hover {
+    transform: translateY(-1px);
+    transition: transform 0.2s;
+}
+
+/* Form Validation Styles */
+.is-invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    display: none;
+    color: #dc3545;
+    font-size: 0.875rem;
+}
+
+/* Alert Styles */
+.alert {
+    margin-top: 1rem;
+    display: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    form {
+        padding: 1rem !important;
+    }
+}

@@ -1,0 +1,43 @@
+/* Child Selector specific styles */
+.parent-box {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.child-element {
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.highlight {
+    background-color: #ffd700;
+    color: #333;
+    transform: scale(1.02);
+}
+
+.selected {
+    background-color: #4caf50;
+    color: white;
+}
+
+.marked {
+    border-left: 4px solid #e91e63;
+    padding-left: 15px;
+    background-color: #f8f9fa;
+}
+
+.nested-list {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.nested-list li {
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}

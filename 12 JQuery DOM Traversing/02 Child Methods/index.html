@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery DOM Traversing - Çocuk Yöntemleri</title>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Çocuk Yöntemleri</h1>
+            <p>jQuery ile DOM elementlerinin alt elementlerine erişme yöntemleri</p>
+        </header>
+
+        <main>
+            <!-- children() Method -->
+            <section class="example-section">
+                <h2>children() Metodu</h2>
+                <p class="description">
+                    Seçili elementin doğrudan alt elementlerini seçer. İsteğe bağlı olarak seçici (selector) kullanılabilir.
+                </p>
+                
+                <div class="demo-container">
+                    <div class="demo-element">
+                        <div class="parent">
+                            <p class="child">Çocuk 1</p>
+                            <p class="child special">Çocuk 2</p>
+                            <div class="child">
+                                <span>Alt çocuk</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="code-example">
+                        <pre><code class="language-javascript">
+// Tüm doğrudan çocukları seç
+$(".parent").children().css("border", "2px solid blue");
+
+// Sadece .special sınıfına sahip çocukları seç
+$(".parent").children(".special").css("background", "yellow");
+                        </code></pre>
+                    </div>
+                    
+                    <button class="run-btn" data-demo="children">Örneği Çalıştır</button>
+                    <button class="reset-btn">Sıfırla</button>
+                </div>
+            </section>
+
+            <!-- find() Method -->
+            <section class="example-section">
+                <h2>find() Metodu</h2>
+                <p class="description">
+                    Seçili elementin altındaki tüm elementler içinde arama yapar. Belirtilen seçiciye uyan tüm alt elementleri bulur.
+                </p>
+                
+                <div class="demo-container">
+                    <div class="demo-element">
+                        <div class="container-element">
+                            <div class="level-1">
+                                <p>Paragraf 1</p>
+                                <div class="level-2">
+                                    <p>Paragraf 2</p>
+                                    <span class="highlight">Önemli metin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="code-example">
+                        <pre><code class="language-javascript">
+// Tüm span elementlerini bul
+$(".container-element").find("span").css("color", "red");
+
+// .highlight sınıfına sahip elementleri bul
+$(".container-element").find(".highlight").css("background", "yellow");
+                        </code></pre>
+                    </div>
+                    
+                    <button class="run-btn" data-demo="find">Örneği Çalıştır</button>
+                    <button class="reset-btn">Sıfırla</button>
+                </div>
+            </section>
+
+            <!-- Interactive Example -->
+            <section class="example-section">
+                <h2>İnteraktif Örnek</h2>
+                <p class="description">
+                    Aşağıdaki örnekte children() ve find() metodlarının farkını görebilirsiniz.
+                </p>
+                
+                <div class="demo-container">
+                    <div class="interactive-demo">
+                        <div class="demo-tree">
+                            <div class="root">Root Element
+                                <div class="branch">Branch 1
+                                    <span class="leaf">Leaf 1.1</span>
+                                    <span class="leaf">Leaf 1.2</span>
+                                </div>
+                                <div class="branch">Branch 2
+                                    <span class="leaf">Leaf 2.1</span>
+                                    <span class="leaf">Leaf 2.2</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="control-panel">
+                        <button class="demo-btn" data-method="children">children('.branch')</button>
+                        <button class="demo-btn" data-method="find">find('.leaf')</button>
+                        <button class="demo-btn" data-method="reset">Sıfırla</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comparison Table -->
+            <section class="example-section">
+                <h2>children() vs find() Karşılaştırması</h2>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Özellik</th>
+                                <th>children()</th>
+                                <th>find()</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Arama Derinliği</td>
+                                <td>Sadece doğrudan çocuklar</td>
+                                <td>Tüm alt elementler</td>
+                            </tr>
+                            <tr>
+                                <td>Performans</td>
+                                <td>Daha hızlı</td>
+                                <td>Daha yavaş (recursive arama)</td>
+                            </tr>
+                            <tr>
+                                <td>Kullanım Alanı</td>
+                                <td>Doğrudan alt elementler için</td>
+                                <td>Derin arama gerektiren durumlar için</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>jQuery DOM Traversing - Çocuk Yöntemleri</p>
+            <div class="nav-links">
+                <a href="../01 Parent Methods/index.html" class="nav-link prev">
+                    <i class="fas fa-arrow-left"></i>
+                    Ebeveyn Yöntemleri
+                </a>
+                <a href="../03 Sibling Methods/index.html" class="nav-link next">
+                    Kardeş Yöntemleri
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="Js/App.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Child Selectors</title>
+    <link rel="stylesheet" href="../00 Selectors/Css/Common.css">
+    <link rel="stylesheet" href="Css/Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-child"></i> jQuery Child Selectors</h1>
+            <p>Learn how to select child elements in jQuery</p>
+        </header>
+
+        <div class="demo-section">
+            <h2>Direkt Alt Eleman Seçici</h2>
+            <div class="controls">
+                <button onclick="selectDirectChildren()">
+                    <i class="fas fa-arrow-down"></i> Direkt Alt Elemanları Seç
+                </button>
+                <button onclick="clearDirectChildren()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <div class="parent-box">
+                    <div class="child-element">Direkt alt eleman 1</div>
+                    <div class="child-element">Direkt alt eleman 2</div>
+                    <div class="child-element">
+                        <div class="child-element">İç içe alt eleman</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-preview">
+                $('.parent-box > .child-element').addClass('highlight');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>İlk Alt Eleman Seçici</h2>
+            <div class="controls">
+                <button onclick="selectFirstChild()">
+                    <i class="fas fa-arrow-up"></i> İlk Alt Elemanı Seç
+                </button>
+                <button onclick="clearFirstChild()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <div class="parent-box">
+                    <div class="child-element">İlk alt eleman</div>
+                    <div class="child-element">İkinci alt eleman</div>
+                    <div class="child-element">Üçüncü alt eleman</div>
+                </div>
+            </div>
+            <div class="code-preview">
+                $('.parent-box > div:first-child').addClass('selected');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Son Alt Eleman Seçici</h2>
+            <div class="controls">
+                <button onclick="selectLastChild()">
+                    <i class="fas fa-arrow-down"></i> Son Alt Elemanı Seç
+                </button>
+                <button onclick="clearLastChild()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <div class="parent-box">
+                    <div class="child-element">Birinci alt eleman</div>
+                    <div class="child-element">İkinci alt eleman</div>
+                    <div class="child-element">Son alt eleman</div>
+                </div>
+            </div>
+            <div class="code-preview">
+                $('.parent-box > div:last-child').addClass('marked');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>N'inci Alt Eleman Seçici</h2>
+            <div class="controls">
+                <button onclick="selectNthChild()">
+                    <i class="fas fa-list-ol"></i> 2. Alt Elemanı Seç
+                </button>
+                <button onclick="clearNthChild()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <div class="parent-box">
+                    <div class="child-element">1. alt eleman</div>
+                    <div class="child-element">2. alt eleman</div>
+                    <div class="child-element">3. alt eleman</div>
+                    <div class="child-element">4. alt eleman</div>
+                </div>
+            </div>
+            <div class="code-preview">
+                $('.parent-box > div:nth-child(2)').addClass('highlight');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Tüm Alt Elemanlar Seçici</h2>
+            <div class="controls">
+                <button onclick="selectAllChildren()">
+                    <i class="fas fa-sitemap"></i> Tüm Alt Elemanları Seç
+                </button>
+                <button onclick="clearAllChildren()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <ul class="nested-list">
+                    <li>Ana liste öğesi 1
+                        <ul>
+                            <li>Alt liste öğesi 1.1</li>
+                            <li>Alt liste öğesi 1.2</li>
+                        </ul>
+                    </li>
+                    <li>Ana liste öğesi 2
+                        <ul>
+                            <li>Alt liste öğesi 2.1</li>
+                            <li>Alt liste öğesi 2.2</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="code-preview">
+                $('.nested-list li').addClass('selected');
+            </div>
+        </div>
+
+        <a href="../00 Selectors/index.html" class="back-button">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <footer>
+            <p>jQuery Selector Examples &copy; 2024</p>
+        </footer>
+    </div>
+
+    <script src="Js/App.js"></script>
+</body>
+</html>

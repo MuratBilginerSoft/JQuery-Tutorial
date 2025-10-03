@@ -1,0 +1,14 @@
+{
+  "name": "jquery-npm-install",
+  "version": "1.0.0",
+  "description": "jQuery'yi modern paket yöneticileri kullanarak projenize ekleyebilirsiniz. Bu yöntem, özellikle modern web uygulamaları ve framework'ler ile çalışırken tercih edilir.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.7.1"
+  }
+}

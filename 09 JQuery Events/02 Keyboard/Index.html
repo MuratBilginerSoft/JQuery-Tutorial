@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Keyboard Events</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-keyboard"></i> Klavye Olayları</h1>
+            <p>jQuery ile klavye olaylarını nasıl yönetebileceğinizi öğrenin</p>
+        </header>
+
+        <div class="examples-container">
+            <!-- Keypress Event -->
+            <section class="example-section">
+                <h2>Keypress Event</h2>
+                <div class="demo-box">
+                    <div class="input-group">
+                        <label for="keypressInput">Bir tuşa basın:</label>
+                        <input type="text" id="keypressInput" placeholder="Bu alana yazı yazın...">
+                    </div>
+                    <div id="keypressResult" class="result-box">
+                        Henüz bir tuşa basılmadı
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$('#element').keypress(function(event) {
+    // Tuşa basıldığında çalışır
+    let key = String.fromCharCode(event.which);
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Keydown/Keyup Events -->
+            <section class="example-section">
+                <h2>Keydown/Keyup Events</h2>
+                <div class="demo-box">
+                    <div class="input-group">
+                        <label for="keyupdownInput">Herhangi bir tuşu basılı tutun:</label>
+                        <input type="text" id="keyupdownInput" placeholder="Bu alana yazı yazın...">
+                    </div>
+                    <div id="keyupdownResult" class="result-box">
+                        Tuş durumu: Beklemede
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$('#element')
+    .keydown(function(event) { /* Tuşa basıldığında */ })
+    .keyup(function(event) { /* Tuş bırakıldığında */ });</code></pre>
+                </div>
+            </section>
+
+            <!-- Special Keys -->
+            <section class="example-section">
+                <h2>Özel Tuşlar</h2>
+                <div class="demo-box">
+                    <div class="input-group">
+                        <label for="specialKeysInput">Özel tuşları deneyin (Ctrl, Alt, Shift):</label>
+                        <input type="text" id="specialKeysInput" placeholder="Bu alana yazı yazın...">
+                    </div>
+                    <div id="specialKeysResult" class="result-box">
+                        Basılan özel tuşlar: -
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$('#element').keydown(function(event) {
+    if (event.ctrlKey) { /* Ctrl basılı */ }
+    if (event.altKey) { /* Alt basılı */ }
+    if (event.shiftKey) { /* Shift basılı */ }
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Game Control Example -->
+            <section class="example-section">
+                <h2>Oyun Kontrolü Örneği</h2>
+                <div class="demo-box">
+                    <div id="gameArea">
+                        <div id="player">◉</div>
+                    </div>
+                    <div class="instructions">
+                        <p>Yön tuşlarını kullanarak karakteri hareket ettirin</p>
+                        <ul>
+                            <li>↑ : Yukarı</li>
+                            <li>↓ : Aşağı</li>
+                            <li>← : Sol</li>
+                            <li>→ : Sağ</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$(document).keydown(function(event) {
+    switch(event.which) {
+        case 37: // sol
+        case 38: // yukarı
+        case 39: // sağ
+        case 40: // aşağı
+    }
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Key Combination -->
+            <section class="example-section">
+                <h2>Tuş Kombinasyonları</h2>
+                <div class="demo-box">
+                    <div class="combo-box">
+                        <p>Aşağıdaki kombinasyonları deneyin:</p>
+                        <ul>
+                            <li>Ctrl + S</li>
+                            <li>Ctrl + A</li>
+                            <li>Ctrl + Z</li>
+                        </ul>
+                    </div>
+                    <div id="comboResult" class="result-box">
+                        Son kullanılan kombinasyon: -
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$(document).keydown(function(event) {
+    if (event.ctrlKey && event.key === 's') {
+        event.preventDefault();
+        // Ctrl + S işlemi
+    }
+});</code></pre>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

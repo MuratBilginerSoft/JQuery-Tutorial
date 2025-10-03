@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Olay Yönetimi Galerisi</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fab fa-js"></i> jQuery Olay Yönetimi Galerisi</h1>
+            <p>jQuery'nin güçlü olay yönetimi özelliklerini keşfedin</p>
+        </header>
+
+        <div class="selector-grid">
+            <!-- Mouse Events Card -->
+            <div class="selector-card" data-path="../01 Mouse/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-mouse-pointer"></i>
+                </div>
+                <h3>Mouse Olayları</h3>
+                <p>Fare etkileşimleri ile ilgili olaylar</p>
+                <div class="code-preview">
+                    <code>click(), hover(), mouseenter()</code>
+                </div>
+            </div>
+
+            <!-- Keyboard Events Card -->
+            <div class="selector-card" data-path="../02 Keyboard/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-keyboard"></i>
+                </div>
+                <h3>Klavye Olayları</h3>
+                <p>Klavye etkileşimleri ile ilgili olaylar</p>
+                <div class="code-preview">
+                    <code>keypress(), keydown(), keyup()</code>
+                </div>
+            </div>
+
+            <!-- Form Events Card -->
+            <div class="selector-card" data-path="../03 Form/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-wpforms"></i>
+                </div>
+                <h3>Form Olayları</h3>
+                <p>Form elemanları ile ilgili olaylar</p>
+                <div class="code-preview">
+                    <code>submit(), change(), focus()</code>
+                </div>
+            </div>
+
+            <!-- Document Events Card -->
+            <div class="selector-card" data-path="../04 Document/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3>Döküman Olayları</h3>
+                <p>Sayfa ve pencere ile ilgili olaylar</p>
+                <div class="code-preview">
+                    <code>load(), resize(), scroll()</code>
+                </div>
+            </div>
+
+            <!-- Custom Events Card -->
+            <div class="selector-card" data-path="../05 Custom/Index.html">
+                <div class="card-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Özel Olaylar</h3>
+                <p>Kendi özel olaylarınızı oluşturun</p>
+                <div class="code-preview">
+                    <code>trigger(), bind(), unbind()</code>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

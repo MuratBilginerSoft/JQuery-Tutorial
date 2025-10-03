@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery ID Selectors</title>
+    <link rel="stylesheet" href="../00 Selectors/Css/Common.css">
+    <link rel="stylesheet" href="Css/Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-fingerprint"></i> jQuery ID Selectors</h1>
+            <p>Learn how to select HTML elements using ID attributes in jQuery</p>
+        </header>
+
+        <div class="demo-section">
+            <h2>Tekil ID Seçici</h2>
+            <div class="controls">
+                <button onclick="selectSpecialElement()">
+                    <i class="fas fa-magic"></i> Özel Elementi Seç
+                </button>
+                <button onclick="clearSpecialElement()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <div id="specialElement">Bu özel bir elementtir (#specialElement)</div>
+                <div>Bu normal bir elementtir</div>
+                <div>Bu da normal bir elementtir</div>
+            </div>
+            <div class="code-preview">
+                $('#specialElement').css('background-color', '#e91e63').css('color', 'white');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>ID ile Stil Değiştirme</h2>
+            <div class="controls">
+                <button onclick="selectTargetBox()">
+                    <i class="fas fa-paint-brush"></i> Hedef Kutuyu Seç
+                </button>
+                <button onclick="clearTargetBox()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <div>Normal kutu</div>
+                <div id="targetBox">Hedef kutu (#targetBox)</div>
+                <div>Normal kutu</div>
+            </div>
+            <div class="code-preview">
+                $('#targetBox').addClass('highlighted');
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Çoklu Özellik Değiştirme</h2>
+            <div class="controls">
+                <button onclick="selectHighlightMe()">
+                    <i class="fas fa-highlighter"></i> Vurgu Yap
+                </button>
+                <button onclick="clearHighlightMe()">
+                    <i class="fas fa-eraser"></i> Temizle
+                </button>
+            </div>
+            <div class="result-box">
+                <div id="highlightMe">Bu elementi vurgula! (#highlightMe)</div>
+            </div>
+            <div class="code-preview">
+                $('#highlightMe').css({
+                    'background-color': '#4caf50',
+                    'color': 'white',
+                    'box-shadow': '0 2px 5px rgba(0,0,0,0.2)'
+                });
+            </div>
+        </div>
+
+        <a href="../00 Selectors/index.html" class="back-button">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <footer>
+            <p>jQuery Selector Examples &copy; 2024</p>
+        </footer>
+    </div>
+
+    <script src="Js/App.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Form Events</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-wpforms"></i> Form Olayları</h1>
+            <p>jQuery ile form olaylarını nasıl yönetebileceğinizi öğrenin</p>
+        </header>
+
+        <div class="examples-container">
+            <!-- Focus/Blur Events -->
+            <section class="example-section">
+                <h2>Focus ve Blur Events</h2>
+                <div class="demo-box">
+                    <div class="input-group">
+                        <label for="focusInput">Input alanına tıklayın veya ayrılın:</label>
+                        <input type="text" id="focusInput" placeholder="Buraya tıklayın...">
+                    </div>
+                    <div id="focusResult" class="result-box">
+                        Durum: Input alanı beklemede
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$('#element')
+    .focus(function() { /* Odaklanıldığında */ })
+    .blur(function() { /* Odak kaybedildiğinde */ });</code></pre>
+                </div>
+            </section>
+
+            <!-- Change Event -->
+            <section class="example-section">
+                <h2>Change Event</h2>
+                <div class="demo-box">
+                    <div class="input-group">
+                        <label for="colorSelect">Renk seçin:</label>
+                        <select id="colorSelect">
+                            <option value="">Renk seçiniz...</option>
+                            <option value="#FF0000">Kırmızı</option>
+                            <option value="#00FF00">Yeşil</option>
+                            <option value="#0000FF">Mavi</option>
+                        </select>
+                    </div>
+                    <div id="colorPreview" class="color-preview">
+                        Seçilen renk burada görünecek
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$('#element').change(function() {
+    let selectedValue = $(this).val();
+    // Değer değiştiğinde çalışır
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Submit Event -->
+            <section class="example-section">
+                <h2>Submit Event</h2>
+                <div class="demo-box">
+                    <form id="demoForm">
+                        <div class="input-group">
+                            <label for="nameInput">Ad:</label>
+                            <input type="text" id="nameInput" name="name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="emailInput">E-posta:</label>
+                            <input type="email" id="emailInput" name="email" required>
+                        </div>
+                        <button type="submit">Gönder</button>
+                    </form>
+                    <div id="submitResult" class="result-box">
+                        Form henüz gönderilmedi
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$('#form').submit(function(event) {
+    event.preventDefault();
+    // Form gönderildiğinde çalışır
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Input Events -->
+            <section class="example-section">
+                <h2>Input Events</h2>
+                <div class="demo-box">
+                    <div class="input-group">
+                        <label for="textArea">Metin yazın:</label>
+                        <textarea id="textArea" rows="4" placeholder="Buraya yazın..."></textarea>
+                    </div>
+                    <div class="stats">
+                        <div>Karakter sayısı: <span id="charCount">0</span></div>
+                        <div>Kelime sayısı: <span id="wordCount">0</span></div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$('#element').on('input', function() {
+    // Her karakter girildiğinde çalışır
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Form Validation -->
+            <section class="example-section">
+                <h2>Form Doğrulama</h2>
+                <div class="demo-box">
+                    <form id="validationForm">
+                        <div class="input-group">
+                            <label for="username">Kullanıcı Adı:</label>
+                            <input type="text" id="username" name="username" 
+                                   data-validation="required minLength:3">
+                            <span class="validation-message"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="password">Şifre:</label>
+                            <input type="password" id="password" name="password" 
+                                   data-validation="required minLength:6">
+                            <span class="validation-message"></span>
+                        </div>
+                        <div class="input-group">
+                            <label for="confirmPassword">Şifre Tekrar:</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" 
+                                   data-validation="required match:password">
+                            <span class="validation-message"></span>
+                        </div>
+                        <button type="submit">Kayıt Ol</button>
+                    </form>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$('input').on('input', function() {
+    validateInput($(this));
+});</code></pre>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

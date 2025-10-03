@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery DOM Traversing</title>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>jQuery DOM Traversing</h1>
+            <p>DOM elementleri arasında gezinme ve element seçme yöntemleri</p>
+        </header>
+
+        <main>
+            <div class="cards">
+                <!-- Parent Methods -->
+                <a href="../01 Parent Methods/index.html" class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-level-up-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ebeveyn Yöntemleri</h3>
+                        <p>parent(), parents(), parentsUntil()</p>
+                    </div>
+                </a>
+
+                <!-- Child Methods -->
+                <a href="../02 Child Methods/index.html" class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-level-down-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Çocuk Yöntemleri</h3>
+                        <p>children(), find()</p>
+                    </div>
+                </a>
+
+                <!-- Sibling Methods -->
+                <a href="../03 Sibling Methods/index.html" class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-arrows-alt-h"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Kardeş Yöntemleri</h3>
+                        <p>siblings(), next(), prev(), nextAll(), prevAll()</p>
+                    </div>
+                </a>
+
+                <!-- Filtering Methods -->
+                <a href="../04 Filtering Methods/index.html" class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Filtreleme Yöntemleri</h3>
+                        <p>first(), last(), eq(), filter(), not()</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Quick Reference -->
+            <section class="quick-reference">
+                <h2>Hızlı Başvuru</h2>
+                <div class="reference-content">
+                    <div class="reference-group">
+                        <h3>Yukarı Doğru Traversing</h3>
+                        <ul>
+                            <li><code>parent()</code> - Doğrudan üst element</li>
+                            <li><code>parents()</code> - Tüm üst elementler</li>
+                            <li><code>parentsUntil()</code> - Belirli bir elemente kadar olan üst elementler</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reference-group">
+                        <h3>Aşağı Doğru Traversing</h3>
+                        <ul>
+                            <li><code>children()</code> - Doğrudan alt elementler</li>
+                            <li><code>find()</code> - Tüm alt elementler</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reference-group">
+                        <h3>Yatay Traversing</h3>
+                        <ul>
+                            <li><code>siblings()</code> - Tüm kardeş elementler</li>
+                            <li><code>next()/prev()</code> - Sonraki/önceki element</li>
+                            <li><code>nextAll()/prevAll()</code> - Tüm sonraki/önceki elementler</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reference-group">
+                        <h3>Filtreleme</h3>
+                        <ul>
+                            <li><code>first()/last()</code> - İlk/son element</li>
+                            <li><code>eq()</code> - Belirli indeksteki element</li>
+                            <li><code>filter()/not()</code> - Koşula uyan/uymayan elementler</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>jQuery DOM Traversing Eğitimi</p>
+            <div class="nav-links">
+                <a href="../../11 JQuery Ajax/06 Error Management/index.html" class="nav-link prev">
+                    <i class="fas fa-arrow-left"></i>
+                    AJAX Hata Yönetimi
+                </a>
+                <a href="../01 Parent Methods/index.html" class="nav-link next">
+                    Ebeveyn Yöntemleri
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="Js/App.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Document/Window Events</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-window-maximize"></i> Document/Window Olayları</h1>
+            <p>jQuery ile document ve window olaylarını nasıl yönetebileceğinizi öğrenin</p>
+        </header>
+
+        <div class="examples-container">
+            <!-- Ready Event -->
+            <section class="example-section">
+                <h2>Document Ready Event</h2>
+                <div class="demo-box">
+                    <div id="readyDemo" class="info-box">
+                        <div class="status-circle"></div>
+                        <span>Sayfa yükleme durumu</span>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$(document).ready(function() {
+    // Sayfa yüklendiğinde çalışır
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Scroll Event -->
+            <section class="example-section">
+                <h2>Scroll Event</h2>
+                <div class="demo-box">
+                    <div id="scrollContainer">
+                        <div id="scrollContent">
+                            <h3>Scroll Pozisyonu</h3>
+                            <div id="scrollInfo">Scroll pozisyonu: 0px</div>
+                            <div class="scroll-marker"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$(window).scroll(function() {
+    let scrollPos = $(window).scrollTop();
+    // Scroll pozisyonu değiştiğinde çalışır
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Resize Event -->
+            <section class="example-section">
+                <h2>Resize Event</h2>
+                <div class="demo-box">
+                    <div id="resizeDemo" class="info-box">
+                        <div class="window-icon">
+                            <i class="fas fa-arrows-alt"></i>
+                        </div>
+                        <div id="windowSize">
+                            Pencere boyutu: -
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$(window).resize(function() {
+    let width = $(window).width();
+    let height = $(window).height();
+    // Pencere boyutu değiştiğinde çalışır
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Load/Unload Events -->
+            <section class="example-section">
+                <h2>Load/Unload Events</h2>
+                <div class="demo-box">
+                    <div class="resource-loader">
+                        <div class="image-container">
+                            <img id="demoImage" src="https://via.placeholder.com/300" alt="Demo Image">
+                            <div class="loader"></div>
+                        </div>
+                        <div id="loadStatus" class="status-text">
+                            Görsel yükleniyor...
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$(window).on('load', function() {
+    // Tüm kaynaklar yüklendiğinde çalışır
+});
+
+$(window).on('beforeunload', function() {
+    // Sayfa kapatılmadan önce çalışır
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Error Event -->
+            <section class="example-section">
+                <h2>Error Event</h2>
+                <div class="demo-box">
+                    <div class="error-demo">
+                        <button id="triggerError">Hata Oluştur</button>
+                        <div id="errorLog" class="error-log">
+                            Hata kayıtları burada görünecek
+                        </div>
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$(element).on('error', function(event) {
+    // Hata oluştuğunda çalışır
+    console.error('Bir hata oluştu:', event);
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Visibility Change -->
+            <section class="example-section">
+                <h2>Visibility Change</h2>
+                <div class="demo-box">
+                    <div id="visibilityDemo" class="info-box">
+                        <div class="visibility-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div id="visibilityStatus">
+                            Sayfa görünür durumda
+                        </div>
+                    </div>
+                    <div class="hint-text">
+                        Başka bir sekmeye geçerek deneyin
+                    </div>
+                </div>
+                <div class="code-preview">
+                    <pre><code>$(document).on('visibilitychange', function() {
+    let state = document.visibilityState;
+    // Sayfa görünürlüğü değiştiğinde çalışır
+});</code></pre>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

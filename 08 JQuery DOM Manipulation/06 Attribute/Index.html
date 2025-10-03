@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Attribute Manipulation</title>
+    <link rel="stylesheet" href="Css/Style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>jQuery Attribute Manipulation Examples</h1>
+        
+        <section class="example-section">
+            <h2>Get & Set Attributes</h2>
+            <div id="getSetDemo" class="demo-box">
+                <img src="https://via.placeholder.com/150" alt="Demo image" id="demoImage">
+                <div class="button-group">
+                    <button onclick="getImageAttr()">Get Src</button>
+                    <button onclick="setImageAttr()">Change Image</button>
+                </div>
+                <div id="attrResult" class="result"></div>
+            </div>
+        </section>
+
+        <section class="example-section">
+            <h2>Remove Attributes</h2>
+            <div id="removeAttrDemo" class="demo-box">
+                <a href="https://www.example.com" target="_blank" id="demoLink">Example Link</a>
+                <div class="button-group">
+                    <button onclick="removeAttr()">Remove Target</button>
+                    <button onclick="restoreAttr()">Restore Target</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="example-section">
+            <h2>Multiple Attributes</h2>
+            <div id="multiAttrDemo" class="demo-box">
+                <input type="text" id="demoInput" placeholder="Original placeholder">
+                <div class="button-group">
+                    <button onclick="setMultipleAttrs()">Set Multiple</button>
+                    <button onclick="removeMultipleAttrs()">Remove Multiple</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="example-section">
+            <h2>Custom Data Attributes</h2>
+            <div id="dataAttrDemo" class="demo-box">
+                <div id="dataElement" data-id="1" data-type="demo" data-info="Original Info">
+                    Element with data attributes
+                </div>
+                <div class="button-group">
+                    <button onclick="getDataAttr()">Get Data</button>
+                    <button onclick="setDataAttr()">Set Data</button>
+                </div>
+                <div id="dataResult" class="result"></div>
+            </div>
+        </section>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

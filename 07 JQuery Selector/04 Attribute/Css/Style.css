@@ -1,0 +1,32 @@
+/* Attribute Selector specific styles */
+.result-box div {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.result-box a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.highlight {
+    background-color: #ffd700;
+    color: #333;
+    transform: scale(1.02);
+}
+
+.selected {
+    background-color: #4caf50;
+    color: white !important;
+}
+
+.marked {
+    border-left: 4px solid #e91e63;
+    padding-left: 15px !important;
+    background-color: #f8f9fa;
+}

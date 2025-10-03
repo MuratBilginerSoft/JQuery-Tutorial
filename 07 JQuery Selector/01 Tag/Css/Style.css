@@ -1,0 +1,26 @@
+/* Tag specific styles */
+.highlight {
+    background-color: #ffd700;
+    transition: background-color 0.3s ease;
+}
+
+.result-box ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.result-box li {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.result-box h3 {
+    margin: 15px 0;
+    transition: color 0.3s ease;
+}
+
+.result-box p {
+    transition: background-color 0.3s ease;
+}

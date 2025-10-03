@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Promise ve Deferred</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-link"></i> Promise ve Deferred</h1>
+            <p>jQuery'nin asenkron işlem yönetimi araçlarını öğrenin</p>
+        </header>
+
+        <div class="content">
+            <!-- Basic Promise Usage -->
+            <section class="example-section">
+                <h2>Temel Promise Kullanımı</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+// AJAX isteğini Promise olarak kullanma
+$.ajax({
+    url: 'https://jsonplaceholder.typicode.com/posts/1'
+})
+.then(function(response) {
+    console.log('Veri alındı:', response);
+    return $.ajax({
+        url: 'https://jsonplaceholder.typicode.com/users/' + response.userId
+    });
+})
+.then(function(user) {
+    console.log('Kullanıcı bilgisi:', user);
+})
+.catch(function(error) {
+    console.error('Hata:', error);
+});
+                        </code></pre>
+                        <button class="run-btn" data-demo="promise">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="promise-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Multiple Promises -->
+            <section class="example-section">
+                <h2>Çoklu Promise İşlemleri</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+// Parallel promises with Promise.all
+Promise.all([
+    $.ajax('https://jsonplaceholder.typicode.com/posts/1'),
+    $.ajax('https://jsonplaceholder.typicode.com/posts/2'),
+    $.ajax('https://jsonplaceholder.typicode.com/posts/3')
+])
+.then(function(results) {
+    console.log('Tüm veriler alındı:', results);
+})
+.catch(function(error) {
+    console.error('Hata:', error);
+});
+
+// Race condition with Promise.race
+Promise.race([
+    $.ajax('https://jsonplaceholder.typicode.com/posts/1'),
+    $.ajax('https://jsonplaceholder.typicode.com/posts/2')
+])
+.then(function(result) {
+    console.log('İlk tamamlanan:', result);
+});
+                        </code></pre>
+                        <button class="run-btn" data-demo="multiple">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="multiple-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Deferred Objects -->
+            <section class="example-section">
+                <h2>Deferred Nesneleri</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+// Create a Deferred object
+var deferred = $.Deferred();
+
+// Simulate async operation
+setTimeout(function() {
+    var success = Math.random() > 0.5;
+    if (success) {
+        deferred.resolve('İşlem başarılı!');
+    } else {
+        deferred.reject('İşlem başarısız!');
+    }
+}, 2000);
+
+// Handle the promise
+deferred.promise()
+    .done(function(result) {
+        console.log('Başarılı:', result);
+    })
+    .fail(function(error) {
+        console.error('Hata:', error);
+    })
+    .always(function() {
+        console.log('İşlem tamamlandı');
+    });
+                        </code></pre>
+                        <button class="run-btn" data-demo="deferred">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="deferred-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Promise Chain -->
+            <section class="example-section">
+                <h2>Promise Zinciri</h2>
+                <div class="example-container">
+                    <div class="code-demo">
+                        <pre><code class="language-javascript">
+// Create a chain of promises
+$.ajax('https://jsonplaceholder.typicode.com/posts/1')
+    .then(function(post) {
+        console.log('Post alındı:', post);
+        return $.ajax('https://jsonplaceholder.typicode.com/users/' + post.userId);
+    })
+    .then(function(user) {
+        console.log('Kullanıcı alındı:', user);
+        return $.ajax('https://jsonplaceholder.typicode.com/posts?userId=' + user.id);
+    })
+    .then(function(userPosts) {
+        console.log('Kullanıcının diğer gönderileri:', userPosts);
+    })
+    .catch(function(error) {
+        console.error('Zincirde hata:', error);
+    })
+    .finally(function() {
+        console.log('Zincir tamamlandı');
+    });
+                        </code></pre>
+                        <button class="run-btn" data-demo="chain">Çalıştır</button>
+                    </div>
+                    <div class="result-container" id="chain-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="tutorial-nav">
+            <a href="../04 Advanced Features/index.html" class="nav-link prev">
+                <i class="fas fa-arrow-left"></i>
+                İleri Düzey Özellikler
+            </a>
+            <a href="../06 Error Management/index.html" class="nav-link next">
+                Hata Yönetimi
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </nav>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script src="Js/App.js"></script>
+</body>
+</html>

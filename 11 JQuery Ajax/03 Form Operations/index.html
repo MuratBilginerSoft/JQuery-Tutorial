@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery AJAX Form İşlemleri</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="Css/Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-wpforms"></i> AJAX Form İşlemleri</h1>
+            <p>jQuery ile form verilerini AJAX kullanarak gönderin</p>
+        </header>
+
+        <div class="content">
+            <!-- Basic Form Submit -->
+            <section class="example-section">
+                <h2>Temel Form Gönderimi</h2>
+                <div class="example-container">
+                    <div class="form-demo">
+                        <form id="basicForm" class="ajax-form">
+                            <div class="form-group">
+                                <label for="name">Ad Soyad:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-posta:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mesaj:</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i> Gönder
+                            </button>
+                        </form>
+                        <div class="code-preview">
+                            <pre><code class="language-javascript">
+$('#basicForm').on('submit', function(e) {
+    e.preventDefault();
+    
+    $.ajax({
+        url: 'https://jsonplaceholder.typicode.com/posts',
+        method: 'POST',
+        data: $(this).serialize(),
+        success: function(response) {
+            console.log('Form submitted:', response);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error:', error);
+        }
+    });
+});
+                            </code></pre>
+                        </div>
+                    </div>
+                    <div class="result-container" id="basicForm-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- File Upload -->
+            <section class="example-section">
+                <h2>Dosya Yükleme</h2>
+                <div class="example-container">
+                    <div class="form-demo">
+                        <form id="fileUploadForm" class="ajax-form">
+                            <div class="form-group">
+                                <label for="file">Dosya Seçin:</label>
+                                <input type="file" id="file" name="file" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="progress-bar">
+                                    <div class="progress"></div>
+                                </div>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-upload"></i> Yükle
+                            </button>
+                        </form>
+                        <div class="code-preview">
+                            <pre><code class="language-javascript">
+$('#fileUploadForm').on('submit', function(e) {
+    e.preventDefault();
+    
+    var formData = new FormData(this);
+    
+    $.ajax({
+        url: 'https://httpbin.org/post',
+        method: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        xhr: function() {
+            var xhr = new window.XMLHttpRequest();
+            xhr.upload.addEventListener('progress', function(e) {
+                if (e.lengthComputable) {
+                    var percent = (e.loaded / e.total) * 100;
+                    $('.progress').width(percent + '%');
+                }
+            }, false);
+            return xhr;
+        },
+        success: function(response) {
+            console.log('File uploaded:', response);
+        }
+    });
+});
+                            </code></pre>
+                        </div>
+                    </div>
+                    <div class="result-container" id="fileUpload-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Form Validation -->
+            <section class="example-section">
+                <h2>Form Doğrulama</h2>
+                <div class="example-container">
+                    <div class="form-demo">
+                        <form id="validationForm" class="ajax-form">
+                            <div class="form-group">
+                                <label for="username">Kullanıcı Adı:</label>
+                                <input type="text" id="username" name="username" 
+                                       pattern="[A-Za-z0-9]{3,}" 
+                                       title="En az 3 karakter, sadece harf ve rakam" required>
+                                <span class="validation-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Şifre:</label>
+                                <input type="password" id="password" name="password" 
+                                       pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                                       title="En az 8 karakter, en az 1 harf ve 1 rakam" required>
+                                <span class="validation-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon:</label>
+                                <input type="tel" id="phone" name="phone" 
+                                       pattern="[0-9]{10}"
+                                       title="10 haneli telefon numarası" required>
+                                <span class="validation-message"></span>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-check-circle"></i> Doğrula ve Gönder
+                            </button>
+                        </form>
+                        <div class="code-preview">
+                            <pre><code class="language-javascript">
+$('#validationForm').on('submit', function(e) {
+    e.preventDefault();
+    
+    var isValid = true;
+    $(this).find('input').each(function() {
+        if (!this.checkValidity()) {
+            isValid = false;
+            $(this).next('.validation-message')
+                   .text(this.validationMessage)
+                   .addClass('error');
+        } else {
+            $(this).next('.validation-message')
+                   .text('')
+                   .removeClass('error');
+        }
+    });
+    
+    if (isValid) {
+        $.ajax({
+            url: 'https://httpbin.org/post',
+            method: 'POST',
+            data: $(this).serialize(),
+            success: function(response) {
+                console.log('Validation passed:', response);
+            }
+        });
+    }
+});
+                            </code></pre>
+                        </div>
+                    </div>
+                    <div class="result-container" id="validation-result">
+                        <div class="result-header">
+                            <h3>Sonuç</h3>
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="tutorial-nav">
+            <a href="../02 Short Methods/index.html" class="nav-link prev">
+                <i class="fas fa-arrow-left"></i>
+                Kısa Yöntemler
+            </a>
+            <a href="../04 Advanced Features/index.html" class="nav-link next">
+                İleri Düzey Özellikler
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </nav>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script src="Js/App.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Element Add</title>
+    <link rel="stylesheet" href="Css/Style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>jQuery Element Add Examples</h1>
+        
+        <section class="example-section">
+            <h2>Append & Prepend</h2>
+            <div id="appendPrependDemo" class="demo-box">
+                <p>Original Content</p>
+            </div>
+            <div class="button-group">
+                <button onclick="appendElement()">Append</button>
+                <button onclick="prependElement()">Prepend</button>
+            </div>
+        </section>
+
+        <section class="example-section">
+            <h2>After & Before</h2>
+            <div id="afterBeforeDemo" class="demo-box">
+                <p>Target Element</p>
+            </div>
+            <div class="button-group">
+                <button onclick="addAfter()">Add After</button>
+                <button onclick="addBefore()">Add Before</button>
+            </div>
+        </section>
+
+        <section class="example-section">
+            <h2>Complex Element Addition</h2>
+            <div id="complexDemo" class="demo-box">
+                <div class="content-area">
+                    <p>Add complex elements here</p>
+                </div>
+            </div>
+            <div class="button-group">
+                <button onclick="addComplexElement()">Add Complex Element</button>
+            </div>
+        </section>
+
+        <section class="example-section">
+            <h2>Dynamic List Creation</h2>
+            <ul id="dynamicList" class="demo-list">
+                <li>Initial item</li>
+            </ul>
+            <div class="button-group">
+                <button onclick="addListItem()">Add List Item</button>
+            </div>
+        </section>
+    </div>
+    <script src="Js/App.js"></script>
+</body>
+</html>

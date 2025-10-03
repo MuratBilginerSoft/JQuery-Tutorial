@@ -1,0 +1,26 @@
+/* ID Selector specific styles */
+.result-box div {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+#specialElement {
+    border: 1px solid #ddd;
+}
+
+#targetBox {
+    background-color: #f5f5f5;
+}
+
+#highlightMe {
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.highlighted {
+    background-color: #ffd700 !important;
+    color: #333;
+    transform: scale(1.02);
+}
